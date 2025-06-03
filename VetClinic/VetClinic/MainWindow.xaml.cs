@@ -10,12 +10,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using VetClinic.Models;
 
-using (var db = new VetClinicContext())
-{
-    var roles = db.Roles.ToList();
-    MessageBox.Show($"Roles in system: {roles.Count}");
-}
-
 namespace VetClinic
 {
     /// <summary>

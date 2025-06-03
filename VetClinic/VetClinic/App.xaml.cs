@@ -8,6 +8,7 @@ using System.IO;
 using System.Xml.Serialization;
 using VetClinic.Models;
 using Microsoft.EntityFrameworkCore;
+using VetClinic.Views;
 
 namespace VetClinic
 {
@@ -18,13 +19,15 @@ namespace VetClinic
     {
         public static IHost AppHost { get; private set; }
 
+        public static VetClinicContext vcc = new VetClinicContext();
+
         public App()
         {
             AppHost = Host.CreateDefaultBuilder()
                 .ConfigureAppConfiguration((context, builder) =>
                 {
                     builder.SetBasePath(Directory.GetCurrentDirectory());
-                    builder.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+                    builder.AddJsonFile("Configuration/appsettings.json", optional: false, reloadOnChange: true);
                 })
                 .ConfigureServices((context, services) =>
                 {
@@ -41,10 +44,20 @@ namespace VetClinic
         protected override async void OnStartup(StartupEventArgs e)
         {
             await AppHost.StartAsync();
-            var mainWindow = AppHost.Services.GetRequiredService<MainWindow>();
-            mainWindow.Show();
+
+            var loginView = new LoginView();
+            bool? loginResult = loginView.ShowDialog();
+
+            if (loginResult == true)
+            {
+                var mainWindow = AppHost.Services.GetRequiredService<MainWindow>();
+                mainWindow.Show();
+            }
+
             base.OnStartup(e);
         }
+
+
     }
 
 }

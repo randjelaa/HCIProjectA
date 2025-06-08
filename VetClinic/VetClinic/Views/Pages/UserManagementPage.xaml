@@ -1,0 +1,14 @@
+﻿<Page x:Class="VetClinic.Views.Pages.UserManagementPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="UserManagementPage">
+    <Grid>
+        <TextBlock Text="User Management Page"
+                   FontSize="24"
+                   FontWeight="Bold"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   Margin="0,30,0,0"/>
+        <!-- Add user table, add/remove buttons here -->
+    </Grid>
+</Page>

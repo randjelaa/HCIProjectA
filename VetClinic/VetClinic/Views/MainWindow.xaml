@@ -5,15 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VetClinic.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="{Binding Source={StaticResource Strings}, Path=[MainWindow]}"
+        Height="450" Width="800">
     <Grid>
 
-        <Button Content="Login"
+        <Button Content="{Binding Source={StaticResource Strings}, Path=[Login]}"
         Width="146"
         Height="53"
         HorizontalAlignment="Center"
-        VerticalAlignment="Center"
-        Click="LoginButton_Click"/>
+        VerticalAlignment="Top"
+        Margin="0,217,0,0"
+        Command="{Binding LoginCommand}" />
+
+        <TextBlock Text="{Binding Source={StaticResource Strings}, Path=[WelcomeMessage]}"
+           HorizontalAlignment="Center"
+           VerticalAlignment="Top"
+           Margin="0,100,0,0"
+           FontSize="20"
+           FontWeight="Bold"
+           Foreground="#4A4A4A"
+           TextAlignment="Center"
+           TextWrapping="Wrap"
+           Width="300"/>
 
     </Grid>
 </Window>

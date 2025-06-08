@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:VetClinic.Views"
-        Title="Login"
+        Title="{Binding Source={StaticResource Strings}, Path=[Login]}"
         Height="350" Width="400"
         WindowStartupLocation="CenterScreen"
         Background="{DynamicResource MaterialDesignPaper}">
@@ -19,7 +19,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Vet Clinic Login"
+        <TextBlock Text="{Binding Source={StaticResource Strings}, Path=[LoginMessage]}"
                    FontSize="24"
                    FontWeight="Bold"
                    Foreground="{DynamicResource MaterialDesignBody}"
@@ -34,12 +34,12 @@
 
         <PasswordBox x:Name="PasswordBox"
                      Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
-                     materialDesign:HintAssist.Hint="Password"
+                     materialDesign:HintAssist.Hint="{Binding Source={StaticResource Strings}, Path=[Password]}"
                      Grid.Row="4"
                      Width="250"
                      PasswordChanged="PasswordBox_PasswordChanged"/>
 
-        <Button Content="Login"
+        <Button Content="{Binding Source={StaticResource Strings}, Path=[Login]}"
         Command="{Binding LoginCommand}"
         CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
         Style="{StaticResource MaterialDesignRaisedButton}"

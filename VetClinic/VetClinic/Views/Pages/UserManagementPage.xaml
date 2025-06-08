@@ -1,9 +1,9 @@
 ﻿<Page x:Class="VetClinic.Views.Pages.UserManagementPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      Title="UserManagementPage">
+      Title="{Binding Source={StaticResource Strings}, Path=[ManageUsers]}">
     <Grid>
-        <TextBlock Text="User Management Page"
+        <TextBlock Text="{Binding Source={StaticResource Strings}, Path=[ManageUsers]}"
                    FontSize="24"
                    FontWeight="Bold"
                    HorizontalAlignment="Center"

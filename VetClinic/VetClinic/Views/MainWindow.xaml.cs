@@ -25,5 +25,20 @@ namespace VetClinic.Views
             InitializeComponent();
             DataContext = new MainWindowViewModel();
         }
+
+        private void LanguageSelector_Changed(object sender, SelectionChangedEventArgs e)
+        {
+            if (e.AddedItems.Count > 0 && e.AddedItems[0] is ComboBoxItem selected)
+            {
+                string culture = selected.Tag.ToString();
+                App.ChangeCulture(culture);
+
+                // Recreate MainWindow to apply new culture
+                var newWindow = new MainWindow();
+                Application.Current.MainWindow = newWindow;
+                newWindow.Show();
+                this.Close();
+            }
+        }
     }
 }

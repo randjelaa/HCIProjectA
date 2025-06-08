@@ -133,10 +133,10 @@
     <value>VetClinic</value>
   </data>
   <data name="ManageServices" xml:space="preserve">
-    <value>Manage Services</value>
+    <value>Manage services</value>
   </data>
   <data name="ManageUsers" xml:space="preserve">
-    <value>Manage Users</value>
+    <value>Manage users</value>
   </data>
   <data name="Menu" xml:space="preserve">
     <value>Menu</value>

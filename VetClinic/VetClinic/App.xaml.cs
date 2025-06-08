@@ -9,6 +9,7 @@ using System.Xml.Serialization;
 using VetClinic.Models;
 using Microsoft.EntityFrameworkCore;
 using VetClinic.Views;
+using System.Globalization;
 
 namespace VetClinic
 {
@@ -50,6 +51,12 @@ namespace VetClinic
             mainWindow.Show();
 
             base.OnStartup(e);
+        }
+
+        public static void ChangeCulture(string cultureCode)
+        {
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(cultureCode);
+            Thread.CurrentThread.CurrentCulture = new CultureInfo(cultureCode);
         }
     }
 }

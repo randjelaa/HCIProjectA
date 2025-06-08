@@ -28,5 +28,16 @@
            TextWrapping="Wrap"
            Width="300"/>
 
+        <!-- TODO add default text or something -->
+        <ComboBox Width="120"
+          HorizontalAlignment="Right"
+          VerticalAlignment="Top"
+          Margin="10"
+          SelectionChanged="LanguageSelector_Changed">
+            <ComboBoxItem Tag="en" Content="English"/>
+            <ComboBoxItem Tag="sr" Content="Srpski"/>
+        </ComboBox>
+
+
     </Grid>
 </Window>

@@ -1,12 +1,19 @@
-﻿<Window x:Class="VetClinic.MainWindow"
+﻿<Window x:Class="VetClinic.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:VetClinic"
+        xmlns:local="clr-namespace:VetClinic.Views"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+
+        <Button Content="Login"
+        Width="146"
+        Height="53"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center"
+        Click="LoginButton_Click"/>
 
     </Grid>
 </Window>

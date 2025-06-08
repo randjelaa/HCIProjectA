@@ -1,4 +1,8 @@
-﻿using System.Text;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -10,14 +14,15 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using VetClinic.Models;
 
-namespace VetClinic
+
+namespace VetClinic.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for VetMainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class VetMainWindow : Window
     {
-        public MainWindow()
+        public VetMainWindow(User loggedInUser)
         {
             InitializeComponent();
         }

@@ -45,19 +45,11 @@ namespace VetClinic
         {
             await AppHost.StartAsync();
 
-            var loginView = new LoginView();
-            bool? loginResult = loginView.ShowDialog();
-
-            if (loginResult == true)
-            {
-                var mainWindow = AppHost.Services.GetRequiredService<MainWindow>();
-                mainWindow.Show();
-            }
+            var mainWindow = new MainWindow();
+            Application.Current.MainWindow = mainWindow;
+            mainWindow.Show();
 
             base.OnStartup(e);
         }
-
-
     }
-
 }

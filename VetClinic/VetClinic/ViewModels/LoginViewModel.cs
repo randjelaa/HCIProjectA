@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
@@ -22,16 +23,22 @@ public class LoginViewModel : INotifyPropertyChanged
         LoginCommand = new RelayCommand(ExecuteLogin);
     }
 
+    public User LoggedInUser { get; private set; }
+
     private void ExecuteLogin(object parameter)
     {
         using var db = new VetClinicContext();
-        var user = db.Users.FirstOrDefault(u => u.Email == Email && u.Password == Password);
+        var user = db.Users
+            .Include(u => u.Role)
+            .FirstOrDefault(u => u.Email == Email && u.Password == Password);
 
         if (user != null)
         {
+            LoggedInUser = user;
+
             if (parameter is Window loginWindow)
             {
-                loginWindow.DialogResult = true; // this closes the login window and returns true
+                loginWindow.DialogResult = true; // triggers ShowDialog() to return true
             }
         }
         else

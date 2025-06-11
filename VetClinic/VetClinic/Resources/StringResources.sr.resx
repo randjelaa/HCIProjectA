@@ -117,8 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Actions" xml:space="preserve">
+    <value>Akcije</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Dodaj</value>
+  </data>
   <data name="AdminWindow" xml:space="preserve">
     <value>VetClinic - Administrator</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Nazad</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Obriši</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>Jezik</value>
@@ -147,8 +159,14 @@
   <data name="Reports" xml:space="preserve">
     <value>Izvještaji</value>
   </data>
+  <data name="Role" xml:space="preserve">
+    <value>Uloga</value>
+  </data>
   <data name="Settings" xml:space="preserve">
     <value>Podešavanja</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Korisničko ime</value>
   </data>
   <data name="WelcomeMessage" xml:space="preserve">
     <value>Dobro došli u VetClinic! Kliknite na dugme ispod da biste se prijavili:</value>

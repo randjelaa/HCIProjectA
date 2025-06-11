@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using VetClinic.ViewModels;
 
 namespace VetClinic.Views.Pages
 {
@@ -23,6 +24,13 @@ namespace VetClinic.Views.Pages
         public UserManagementPage()
         {
             InitializeComponent();
+            DataContext = new UserManagementViewModel();
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService?.GoBack();
         }
     }
+
 }

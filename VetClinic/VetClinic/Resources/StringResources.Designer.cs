@@ -61,11 +61,47 @@ namespace VetClinic.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Actions.
+        /// </summary>
+        internal static string Actions {
+            get {
+                return ResourceManager.GetString("Actions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add.
+        /// </summary>
+        internal static string Add {
+            get {
+                return ResourceManager.GetString("Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to VetClinic - Admin.
         /// </summary>
         internal static string AdminWindow {
             get {
                 return ResourceManager.GetString("AdminWindow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Back.
+        /// </summary>
+        internal static string Back {
+            get {
+                return ResourceManager.GetString("Back", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete.
+        /// </summary>
+        internal static string Delete {
+            get {
+                return ResourceManager.GetString("Delete", resourceCulture);
             }
         }
         
@@ -151,11 +187,29 @@ namespace VetClinic.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Role.
+        /// </summary>
+        internal static string Role {
+            get {
+                return ResourceManager.GetString("Role", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Settings.
         /// </summary>
         internal static string Settings {
             get {
                 return ResourceManager.GetString("Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Username.
+        /// </summary>
+        internal static string Username {
+            get {
+                return ResourceManager.GetString("Username", resourceCulture);
             }
         }
         

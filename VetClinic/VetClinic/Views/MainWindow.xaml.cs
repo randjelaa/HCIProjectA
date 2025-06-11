@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -26,11 +28,11 @@ namespace VetClinic.Views
             DataContext = new MainWindowViewModel();
         }
 
-        private void LanguageSelector_Changed(object sender, SelectionChangedEventArgs e)
+        private void LanguageMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            if (e.AddedItems.Count > 0 && e.AddedItems[0] is ComboBoxItem selected)
+            if (sender is MenuItem menuItem && menuItem.Tag is string cultureCode)
             {
-                string culture = selected.Tag.ToString();
+                string culture = cultureCode;
                 App.ChangeCulture(culture);
 
                 // Recreate MainWindow to apply new culture
@@ -40,5 +42,6 @@ namespace VetClinic.Views
                 this.Close();
             }
         }
+
     }
 }

@@ -13,6 +13,8 @@ public partial class User
 
     public string Password { get; set; } = null!;
 
+    public DateTime? Deleted { get; set; }
+
     public int? RoleId { get; set; }
 
     public virtual ICollection<Appointment> Appointments { get; set; } = new List<Appointment>();

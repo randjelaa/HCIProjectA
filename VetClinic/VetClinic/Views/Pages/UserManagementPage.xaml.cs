@@ -27,6 +27,7 @@ namespace VetClinic.Views.Pages
             DataContext = new UserManagementViewModel();
         }
 
+        //TODO: reimplement this
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             NavigationService?.GoBack();

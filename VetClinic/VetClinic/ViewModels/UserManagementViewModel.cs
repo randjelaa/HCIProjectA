@@ -1,9 +1,10 @@
-﻿using MvvmHelpers;
+﻿using Microsoft.EntityFrameworkCore;
+using MvvmHelpers;
 using System.Collections.ObjectModel;
+using System.Windows;
 using System.Windows.Input;
 using VetClinic.Models;
-using Microsoft.EntityFrameworkCore;
-
+using VetClinic.Views.Windows;
 
 public class UserManagementViewModel : BaseViewModel
 {
@@ -14,28 +15,39 @@ public class UserManagementViewModel : BaseViewModel
 
     public UserManagementViewModel()
     {
-        using var db = new VetClinicContext();
-        Users = new ObservableCollection<User>(db.Users.ToList());
+        Users = new ObservableCollection<User>();
 
         AddUserCommand = new RelayCommand(_ => AddUser());
         DeleteUserCommand = new RelayCommand(userObj => DeleteUser(userObj as User));
+
         LoadUsers();
     }
 
     private void AddUser()
     {
-       /* var newUser = new User
+        var window = new AddUserWindow
         {
-            Username = "NewUser",
-            Email = "email@example.com",
-            RoleId = 1 // Default role, or make this configurable
+            Owner = Application.Current.MainWindow
         };
 
-        using var db = new VetClinicDbContext();
-        db.Users.Add(newUser);
-        db.SaveChanges();
+        if (window.ShowDialog() == true)
+        {
+            var vm = (AddUserViewModel)window.DataContext;
 
-        Users.Add(newUser); */
+            using var db = new VetClinicContext();
+            var user = new User
+            {
+                Name = vm.Name,
+                Email = vm.Email,
+                Password = window.Password,
+                RoleId = vm.SelectedRole?.Id
+            };
+
+            db.Users.Add(user);
+            db.SaveChanges();
+
+            LoadUsers(); // Refresh the table
+        }
     }
 
     private void DeleteUser(User user)
@@ -46,7 +58,7 @@ public class UserManagementViewModel : BaseViewModel
         var toDelete = db.Users.Find(user.Id);
         if (toDelete == null) return;
 
-        db.Users.Remove(toDelete);
+        toDelete.Deleted = DateTime.Now;
         db.SaveChanges();
 
         Users.Remove(user);
@@ -56,9 +68,17 @@ public class UserManagementViewModel : BaseViewModel
     {
         using var context = new VetClinicContext();
         var usersWithRoles = context.Users
+            .Where(u => u.Deleted == null)
             .Include(u => u.Role)
             .ToList();
 
-        Users = new ObservableCollection<User>(usersWithRoles);
+        Application.Current.Dispatcher.Invoke(() =>
+        {
+            Users.Clear();
+            foreach (var user in usersWithRoles)
+            {
+                Users.Add(user);
+            }
+        });
     }
 }

@@ -22,7 +22,7 @@ namespace VetClinic.ViewModels
             LoggedInUser = user;
 
             NavigateUsersCommand = new RelayCommand(_ => Navigate(new UserManagementPage()));
-            NavigateServicesCommand = new RelayCommand(_ => Navigate(null)); // Replace with real page
+            NavigateServicesCommand = new RelayCommand(_ => Navigate(new ServiceManagementPage())); // Replace with real page
             NavigateReportsCommand = new RelayCommand(_ => Navigate(null));  // Replace with real page
             NavigateSettingsCommand = new RelayCommand(_ => Navigate(null)); // Replace with real page
         }

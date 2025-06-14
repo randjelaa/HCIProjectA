@@ -40,7 +40,9 @@ namespace VetClinic.ViewModels
         private void LoadServices()
         {
             using var db = new VetClinicContext();
-            var list = db.Services.ToList();
+            var list = db.Services
+                .Where(s => s.Deleted == null)
+                .ToList();
 
             Application.Current.Dispatcher.Invoke(() =>
             {
@@ -56,9 +58,9 @@ namespace VetClinic.ViewModels
 
             using var db = new VetClinicContext();
             var existing = db.Services.Find(service.Id);
-            if (existing == null) return;
+            if (existing == null || existing.Deleted != null) return;
 
-            db.Services.Remove(existing);
+            existing.Deleted = DateTime.Now;
             db.SaveChanges();
             LoadServices();
         }
@@ -75,6 +77,4 @@ namespace VetClinic.ViewModels
                 LoadServices();
         }
     }
-
-
 }

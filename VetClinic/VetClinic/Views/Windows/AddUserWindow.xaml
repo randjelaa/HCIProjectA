@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:VetClinic.Views.Windows"
-        Title="Add User" Height="350" Width="400"
+        Title="{Binding Source={StaticResource Strings}, Path=[User]}" Height="350" Width="400"
         WindowStartupLocation="CenterOwner" ResizeMode="NoResize"
         Background="{DynamicResource MaterialDesignPaper}"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -24,7 +24,7 @@
         <TextBox Grid.Row="0" Margin="0,5"
                  Style="{StaticResource MaterialDesignOutlinedTextBox}"
                  Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"
-                 materialDesign:HintAssist.Hint="Name" />
+                 materialDesign:HintAssist.Hint="{Binding Source={StaticResource Strings}, Path=[Name]}" />
 
         <!-- Email -->
         <TextBox Grid.Row="1" Margin="0,5"
@@ -36,7 +36,7 @@
         <PasswordBox Grid.Row="2" Margin="0,5"
                      Style="{StaticResource MaterialDesignOutlinedPasswordBox}"
                      x:Name="PasswordBox"
-                     materialDesign:HintAssist.Hint="Password" />
+                     materialDesign:HintAssist.Hint="{Binding Source={StaticResource Strings}, Path=[Password]}" />
 
         <!-- Role -->
         <ComboBox Grid.Row="3" Margin="0,5"
@@ -44,10 +44,10 @@
                   ItemsSource="{Binding Roles}"
                   SelectedItem="{Binding SelectedRole}"
                   DisplayMemberPath="Name"
-                  materialDesign:HintAssist.Hint="Role" />
+                  materialDesign:HintAssist.Hint="{Binding Source={StaticResource Strings}, Path=[Role]}" />
 
         <!-- Save Button -->
-        <Button Grid.Row="4" Content="Save" Margin="0,15,0,0"
+        <Button Grid.Row="4" Content="{Binding Source={StaticResource Strings}, Path=[Save]}" Margin="0,15,0,0"
                 Style="{StaticResource MaterialDesignRaisedButton}"
                 Click="Save_Click"
                 HorizontalAlignment="Right" Width="100"/>

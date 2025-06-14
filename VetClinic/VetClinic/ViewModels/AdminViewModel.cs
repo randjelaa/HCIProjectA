@@ -6,7 +6,7 @@ using MvvmHelpers;
 
 namespace VetClinic.ViewModels
 {
-    public class AdminMainWindowViewModel : BaseViewModel
+    public class AdminViewModel : BaseViewModel
     {
         public User LoggedInUser { get; }
 
@@ -17,7 +17,7 @@ namespace VetClinic.ViewModels
 
         public Frame FrameRef { get; set; }
 
-        public AdminMainWindowViewModel(User user)
+        public AdminViewModel(User user)
         {
             LoggedInUser = user;
 

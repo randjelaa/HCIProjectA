@@ -1,8 +1,8 @@
-﻿<Window x:Class="VetClinic.Views.AdminMainWindow"
+﻿<Window x:Class="VetClinic.Views.AdminView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:VetClinic.Views"
-        Title="{Binding Source={StaticResource Strings}, Path=[AdminWindow]}" 
+        Title="{Binding Source={StaticResource Strings}, Path=[AdminView]}" 
         Height="500" Width="900">
     <DockPanel>
         <!-- Navigation Menu -->

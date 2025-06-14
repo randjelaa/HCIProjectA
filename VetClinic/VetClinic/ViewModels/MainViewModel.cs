@@ -6,11 +6,11 @@ using VetClinic.Views;
 
 namespace VetClinic.ViewModels
 {
-    public class MainWindowViewModel : BaseViewModel
+    public class MainViewModel : BaseViewModel
     {
         public ICommand LoginCommand { get; }
 
-        public MainWindowViewModel()
+        public MainViewModel()
         {
             LoginCommand = new RelayCommand(ExecuteLogin);
         }
@@ -28,7 +28,7 @@ namespace VetClinic.ViewModels
 
                 Window roleWindow = role switch
                 {
-                    "admin" or "administrator" => new AdminMainWindow(loginViewModel.LoggedInUser),
+                    "admin" or "administrator" => new AdminView(loginViewModel.LoggedInUser),
                     "vet" or "veterinarian" => new VetMainWindow(loginViewModel.LoggedInUser),
                     _ => throw new InvalidOperationException("Unknown user role")
                 };

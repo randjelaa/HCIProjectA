@@ -1,0 +1,53 @@
+﻿<Window x:Class="VetClinic.Views.Windows.AddEditServiceWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:VetClinic.Views.Windows"
+        Title="{Binding Source={StaticResource Strings}, Path=[Service]}" Height="370" Width="400"
+        WindowStartupLocation="CenterOwner" ResizeMode="NoResize"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        FontFamily="{DynamicResource MaterialDesignFont}">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Name -->
+        <TextBox Grid.Row="0" Margin="0,5"
+                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                 Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"
+                 materialDesign:HintAssist.Hint="{Binding Source={StaticResource Strings}, Path=[Name]}" />
+
+        <!-- Description -->
+        <TextBox Grid.Row="1" Margin="0,5"
+                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                 Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}"
+                 materialDesign:HintAssist.Hint="{Binding Source={StaticResource Strings}, Path=[Description]}" />
+
+        <!-- Price -->
+        <TextBox Grid.Row="2" Margin="0,5"
+                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                 Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}"
+                 materialDesign:HintAssist.Hint="{Binding Source={StaticResource Strings}, Path=[Price]}" />
+
+        <!-- Duration in minutes -->
+        <TextBox Grid.Row="3" Margin="0,5"
+                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                 Text="{Binding DurationMinutes, UpdateSourceTrigger=PropertyChanged}"
+                 materialDesign:HintAssist.Hint="{Binding Source={StaticResource Strings}, Path=[DurationMinutes]}" />
+
+        <!-- Save Button -->
+        <Button Grid.Row="4" Content="{Binding Source={StaticResource Strings}, Path=[Save]}" Margin="0,15,0,0"
+                Style="{StaticResource MaterialDesignRaisedButton}"
+                Command="{Binding SaveCommand}"
+                HorizontalAlignment="Right" Width="100"/>
+    </Grid>
+</Window>

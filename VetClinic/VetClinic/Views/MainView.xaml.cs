@@ -18,14 +18,14 @@ using VetClinic.ViewModels;
 namespace VetClinic.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for MainView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainView : Window
     {
-        public MainWindow()
+        public MainView()
         {
             InitializeComponent();
-            DataContext = new MainWindowViewModel();
+            DataContext = new MainViewModel();
         }
 
         private void LanguageMenuItem_Click(object sender, RoutedEventArgs e)
@@ -35,8 +35,8 @@ namespace VetClinic.Views
                 string culture = cultureCode;
                 App.ChangeCulture(culture);
 
-                // Recreate MainWindow to apply new culture
-                var newWindow = new MainWindow();
+                // Recreate MainView to apply new culture
+                var newWindow = new MainView();
                 Application.Current.MainWindow = newWindow;
                 newWindow.Show();
                 this.Close();

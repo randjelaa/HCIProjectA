@@ -61,15 +61,6 @@ namespace VetClinic.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Actions.
-        /// </summary>
-        internal static string Actions {
-            get {
-                return ResourceManager.GetString("Actions", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Add.
         /// </summary>
         internal static string Add {
@@ -81,9 +72,9 @@ namespace VetClinic.Resources {
         /// <summary>
         ///   Looks up a localized string similar to VetClinic - Admin.
         /// </summary>
-        internal static string AdminWindow {
+        internal static string AdminView {
             get {
-                return ResourceManager.GetString("AdminWindow", resourceCulture);
+                return ResourceManager.GetString("AdminView", resourceCulture);
             }
         }
         
@@ -102,6 +93,24 @@ namespace VetClinic.Resources {
         internal static string Delete {
             get {
                 return ResourceManager.GetString("Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Description.
+        /// </summary>
+        internal static string Description {
+            get {
+                return ResourceManager.GetString("Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Duration (min).
+        /// </summary>
+        internal static string DurationMinutes {
+            get {
+                return ResourceManager.GetString("DurationMinutes", resourceCulture);
             }
         }
         
@@ -135,9 +144,9 @@ namespace VetClinic.Resources {
         /// <summary>
         ///   Looks up a localized string similar to VetClinic.
         /// </summary>
-        internal static string MainWindow {
+        internal static string MainView {
             get {
-                return ResourceManager.GetString("MainWindow", resourceCulture);
+                return ResourceManager.GetString("MainView", resourceCulture);
             }
         }
         
@@ -169,11 +178,29 @@ namespace VetClinic.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        internal static string Name {
+            get {
+                return ResourceManager.GetString("Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password.
         /// </summary>
         internal static string Password {
             get {
                 return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Price.
+        /// </summary>
+        internal static string Price {
+            get {
+                return ResourceManager.GetString("Price", resourceCulture);
             }
         }
         
@@ -196,11 +223,38 @@ namespace VetClinic.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        internal static string Save {
+            get {
+                return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Service.
+        /// </summary>
+        internal static string Service {
+            get {
+                return ResourceManager.GetString("Service", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Settings.
         /// </summary>
         internal static string Settings {
             get {
                 return ResourceManager.GetString("Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User.
+        /// </summary>
+        internal static string User {
+            get {
+                return ResourceManager.GetString("User", resourceCulture);
             }
         }
         

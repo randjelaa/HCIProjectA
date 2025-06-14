@@ -46,7 +46,7 @@ namespace VetClinic
         {
             await AppHost.StartAsync();
 
-            var mainWindow = new MainWindow();
+            var mainWindow = new MainView();
             Application.Current.MainWindow = mainWindow;
             mainWindow.Show();
 

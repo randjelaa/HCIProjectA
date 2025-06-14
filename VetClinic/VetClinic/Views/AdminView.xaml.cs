@@ -4,12 +4,12 @@ using VetClinic.ViewModels;
 
 namespace VetClinic.Views
 {
-    public partial class AdminMainWindow : Window
+    public partial class AdminView : Window
     {
-        public AdminMainWindow(User loggedInUser)
+        public AdminView(User loggedInUser)
         {
             InitializeComponent();
-            var vm = new AdminMainWindowViewModel(loggedInUser);
+            var vm = new AdminViewModel(loggedInUser);
             DataContext = vm;
             vm.FrameRef = MainFrame;
 

@@ -15,5 +15,7 @@ public partial class Service
 
     public int? DurationMinutes { get; set; }
 
+    public DateTime? Deleted { get; set; }
+
     public virtual ICollection<Appointment> Appointments { get; set; } = new List<Appointment>();
 }

@@ -43,8 +43,6 @@
         Command="{Binding LoginCommand}"
         CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
         Style="{StaticResource MaterialDesignRaisedButton}"
-        Background="{DynamicResource PrimaryHueMidBrush}"
-        Foreground="White"
         Width="100"
         Margin="0 20 0 0"
         Grid.Row="6"

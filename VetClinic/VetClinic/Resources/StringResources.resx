@@ -117,13 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Actions" xml:space="preserve">
-    <value>Actions</value>
-  </data>
   <data name="Add" xml:space="preserve">
     <value>Add</value>
   </data>
-  <data name="AdminWindow" xml:space="preserve">
+  <data name="User" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="AdminView" xml:space="preserve">
     <value>VetClinic - Admin</value>
   </data>
   <data name="Back" xml:space="preserve">
@@ -141,7 +141,7 @@
   <data name="LoginMessage" xml:space="preserve">
     <value>Log in here:</value>
   </data>
-  <data name="MainWindow" xml:space="preserve">
+  <data name="MainView" xml:space="preserve">
     <value>VetClinic</value>
   </data>
   <data name="ManageServices" xml:space="preserve">
@@ -153,6 +153,12 @@
   <data name="Menu" xml:space="preserve">
     <value>Menu</value>
   </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Service" xml:space="preserve">
+    <value>Service</value>
+  </data>
   <data name="Password" xml:space="preserve">
     <value>Password</value>
   </data>
@@ -162,6 +168,9 @@
   <data name="Role" xml:space="preserve">
     <value>Role</value>
   </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
   <data name="Settings" xml:space="preserve">
     <value>Settings</value>
   </data>
@@ -170,5 +179,14 @@
   </data>
   <data name="WelcomeMessage" xml:space="preserve">
     <value>Welcome to VetClinic! Press the button below to log in:</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="DurationMinutes" xml:space="preserve">
+    <value>Duration (min)</value>
   </data>
 </root>

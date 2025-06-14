@@ -18,11 +18,11 @@ using VetClinic.Models;
 namespace VetClinic.Views
 {
     /// <summary>
-    /// Interaction logic for VetMainWindow.xaml
+    /// Interaction logic for VetView.xaml
     /// </summary>
-    public partial class VetMainWindow : Window
+    public partial class VetView : Window
     {
-        public VetMainWindow(User loggedInUser)
+        public VetView(User loggedInUser)
         {
             InitializeComponent();
         }

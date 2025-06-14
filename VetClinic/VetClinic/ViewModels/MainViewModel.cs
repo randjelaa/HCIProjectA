@@ -29,7 +29,7 @@ namespace VetClinic.ViewModels
                 Window roleWindow = role switch
                 {
                     "admin" or "administrator" => new AdminView(loginViewModel.LoggedInUser),
-                    "vet" or "veterinarian" => new VetMainWindow(loginViewModel.LoggedInUser),
+                    "vet" or "veterinarian" => new VetView(loginViewModel.LoggedInUser),
                     _ => throw new InvalidOperationException("Unknown user role")
                 };
 

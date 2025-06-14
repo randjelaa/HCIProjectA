@@ -189,4 +189,34 @@
   <data name="DurationMinutes" xml:space="preserve">
     <value>Duration (min)</value>
   </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Actions</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Payments" xml:space="preserve">
+    <value>Payments</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="UnpaidServices" xml:space="preserve">
+    <value>Unpaid services</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="UserDetails" xml:space="preserve">
+    <value>User details</value>
+  </data>
+  <data name="Income" xml:space="preserve">
+    <value>Income over time</value>
+  </data>
+  <data name="PopularServices" xml:space="preserve">
+    <value>Most popular services</value>
+  </data>
 </root>

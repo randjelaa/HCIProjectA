@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:VetClinic.Views.Pages"
       mc:Ignorable="d"
-      Title="Service Management">
+      Title="{Binding Source={StaticResource Strings}, Path=[ManageServices]}">
 
     <Grid Margin="20">
         <Grid.RowDefinitions>
@@ -15,7 +15,7 @@
         </Grid.RowDefinitions>
 
         <!-- Header -->
-        <TextBlock Text="Manage Services"
+        <TextBlock Text="{Binding Source={StaticResource Strings}, Path=[ManageServices]}"
                    FontSize="24"
                    FontWeight="Bold"
                    HorizontalAlignment="Center"
@@ -31,20 +31,20 @@
                       AlternatingRowBackground="#FFEFEFEF">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Binding="{Binding Id}" IsReadOnly="True"/>
-                    <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
-                    <DataGridTextColumn Header="Description" Binding="{Binding Description}" />
-                    <DataGridTextColumn Header="Price" Binding="{Binding Price}" />
-                    <DataGridTextColumn Header="Duration (min)" Binding="{Binding DurationMinutes}" />
+                    <DataGridTextColumn Header="{Binding Source={StaticResource Strings}, Path=[Name]}" Binding="{Binding Name}" />
+                    <DataGridTextColumn Header="{Binding Source={StaticResource Strings}, Path=[Description]}" Binding="{Binding Description}" />
+                    <DataGridTextColumn Header="{Binding Source={StaticResource Strings}, Path=[Price]}" Binding="{Binding Price}" />
+                    <DataGridTextColumn Header="{Binding Source={StaticResource Strings}, Path=[DurationMinutes]}" Binding="{Binding DurationMinutes}" />
 
-                    <DataGridTemplateColumn Header="Actions">
+                    <DataGridTemplateColumn Header="{Binding Source={StaticResource Strings}, Path=[Actions]}">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <Button Content="Edit"
+                                    <Button Content="{Binding Source={StaticResource Strings}, Path=[Edit]}"
                                             Margin="2"
                                             Command="{Binding DataContext.EditServiceCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
                                             CommandParameter="{Binding}" />
-                                    <Button Content="Delete"
+                                    <Button Content="{Binding Source={StaticResource Strings}, Path=[Delete]}"
                                             Margin="2"
                                             Command="{Binding DataContext.DeleteServiceCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
                                             CommandParameter="{Binding}" />
@@ -58,11 +58,8 @@
 
         <!-- Buttons -->
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
-            <Button Content="Add"
+            <Button Content="{Binding Source={StaticResource Strings}, Path=[Add]}"
                     Command="{Binding AddServiceCommand}"
-                    Margin="10"/>
-            <Button Content="Back"
-                   
                     Margin="10"/>
         </StackPanel>
     </Grid>

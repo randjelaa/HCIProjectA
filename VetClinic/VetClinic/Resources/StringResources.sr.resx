@@ -189,4 +189,34 @@
   <data name="DurationMinutes" xml:space="preserve">
     <value>Trajanje (min)</value>
   </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Akcije</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Uredi</value>
+  </data>
+  <data name="Payments" xml:space="preserve">
+    <value>Plaćanja</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Datum</value>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>Količina</value>
+  </data>
+  <data name="UnpaidServices" xml:space="preserve">
+    <value>Neplaćeni servisi</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="UserDetails" xml:space="preserve">
+    <value>Detalji o korisniku</value>
+  </data>
+  <data name="Income" xml:space="preserve">
+    <value>Zarada tokom vremena</value>
+  </data>
+  <data name="PopularServices" xml:space="preserve">
+    <value>Najpopularniji servisi</value>
+  </data>
 </root>

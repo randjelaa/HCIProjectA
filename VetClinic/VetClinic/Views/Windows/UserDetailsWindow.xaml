@@ -1,0 +1,19 @@
+﻿<Window x:Class="VetClinic.Views.Windows.UserDetailsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="{Binding Source={StaticResource Strings}, Path=[UserDetails]}"
+        Height="250" Width="300"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize"
+        Background="{DynamicResource MaterialDesignPaper}">
+
+    <Grid Margin="20">
+        <StackPanel>
+            <TextBlock Text="{Binding Name}" FontSize="18" FontWeight="Bold" Margin="0,0,0,10" />
+            <TextBlock Text="Email" FontWeight="Bold" />
+            <TextBlock Text="{Binding Email}" Margin="0,0,0,10"/>
+            <TextBlock Text="{Binding Source={StaticResource Strings}, Path=[Role]}" FontWeight="Bold" />
+            <TextBlock Text="{Binding Role.Name}" />
+        </StackPanel>
+    </Grid>
+</Window>

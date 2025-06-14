@@ -61,6 +61,15 @@ namespace VetClinic.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Actions.
+        /// </summary>
+        internal static string Actions {
+            get {
+                return ResourceManager.GetString("Actions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add.
         /// </summary>
         internal static string Add {
@@ -79,11 +88,29 @@ namespace VetClinic.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Amount.
+        /// </summary>
+        internal static string Amount {
+            get {
+                return ResourceManager.GetString("Amount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Back.
         /// </summary>
         internal static string Back {
             get {
                 return ResourceManager.GetString("Back", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date.
+        /// </summary>
+        internal static string Date {
+            get {
+                return ResourceManager.GetString("Date", resourceCulture);
             }
         }
         
@@ -111,6 +138,24 @@ namespace VetClinic.Resources {
         internal static string DurationMinutes {
             get {
                 return ResourceManager.GetString("DurationMinutes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit.
+        /// </summary>
+        internal static string Edit {
+            get {
+                return ResourceManager.GetString("Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Income over time.
+        /// </summary>
+        internal static string Income {
+            get {
+                return ResourceManager.GetString("Income", resourceCulture);
             }
         }
         
@@ -196,6 +241,24 @@ namespace VetClinic.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Payments.
+        /// </summary>
+        internal static string Payments {
+            get {
+                return ResourceManager.GetString("Payments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Most popular services.
+        /// </summary>
+        internal static string PopularServices {
+            get {
+                return ResourceManager.GetString("PopularServices", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Price.
         /// </summary>
         internal static string Price {
@@ -250,11 +313,38 @@ namespace VetClinic.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Status.
+        /// </summary>
+        internal static string Status {
+            get {
+                return ResourceManager.GetString("Status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unpaid services.
+        /// </summary>
+        internal static string UnpaidServices {
+            get {
+                return ResourceManager.GetString("UnpaidServices", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to User.
         /// </summary>
         internal static string User {
             get {
                 return ResourceManager.GetString("User", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User details.
+        /// </summary>
+        internal static string UserDetails {
+            get {
+                return ResourceManager.GetString("UserDetails", resourceCulture);
             }
         }
         

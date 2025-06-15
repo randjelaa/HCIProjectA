@@ -1,8 +1,10 @@
-﻿using System.Windows.Input;
+﻿using MvvmHelpers;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using VetClinic.Models;
+using VetClinic.Views;
 using VetClinic.Views.Pages;
-using MvvmHelpers;
 
 namespace VetClinic.ViewModels
 {
@@ -15,6 +17,8 @@ namespace VetClinic.ViewModels
         public ICommand NavigateReportsCommand { get; }
         public ICommand NavigateSettingsCommand { get; }
 
+        public ICommand LogoutCommand { get; }
+
         public Frame FrameRef { get; set; }
 
         public AdminViewModel(User user)
@@ -22,9 +26,11 @@ namespace VetClinic.ViewModels
             LoggedInUser = user;
 
             NavigateUsersCommand = new RelayCommand(_ => Navigate(new UserManagementPage()));
-            NavigateServicesCommand = new RelayCommand(_ => Navigate(new ServiceManagementPage())); // Replace with real page
-            NavigateReportsCommand = new RelayCommand(_ => Navigate(new ReportsPage()));  // Replace with real page
-            NavigateSettingsCommand = new RelayCommand(_ => Navigate(new SettingsPage(LoggedInUser))); // Replace with real page
+            NavigateServicesCommand = new RelayCommand(_ => Navigate(new ServiceManagementPage())); 
+            NavigateReportsCommand = new RelayCommand(_ => Navigate(new ReportsPage()));  
+            NavigateSettingsCommand = new RelayCommand(_ => Navigate(new SettingsPage(LoggedInUser)));
+
+            LogoutCommand = new RelayCommand(ExecuteLogout);
         }
 
         private void Navigate(Page page)
@@ -36,6 +42,18 @@ namespace VetClinic.ViewModels
             }
 
             FrameRef?.Navigate(page);
+        }
+
+        private void ExecuteLogout(object obj)
+        {
+            // Perform any necessary cleanup
+            var old = App.Current.MainWindow;
+
+            // Show the LoginView again
+            var main = new MainView();
+            Application.Current.MainWindow = main;
+            main.Show();
+            old.Close();
         }
     }
 }

@@ -219,4 +219,7 @@
   <data name="PopularServices" xml:space="preserve">
     <value>Najpopularniji servisi</value>
   </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Odjava</value>
+  </data>
 </root>

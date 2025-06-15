@@ -17,6 +17,9 @@
                     Margin="10" Command="{Binding NavigateReportsCommand}"/>
             <Button Content="{Binding Source={StaticResource Strings}, Path=[Settings]}" 
                     Margin="10" Command="{Binding NavigateSettingsCommand}"/>
+            <Button Content="{Binding Source={StaticResource Strings}, Path=[Logout]}"
+                HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                Margin="10" Command="{Binding LogoutCommand}" />
         </StackPanel>
 
         <!-- Main Content -->

@@ -1,0 +1,13 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+	<!-- Define Light Theme Resources -->
+	<SolidColorBrush x:Key="PrimaryBackground" Color="White"/>
+	<SolidColorBrush x:Key="PrimaryForeground" Color="Black"/>
+	<SolidColorBrush x:Key="ButtonBackground" Color="Blue"/>
+	<SolidColorBrush x:Key="ButtonForeground" Color="White"/>
+	<SolidColorBrush x:Key="ButtonBackgroundHover" Color="LightBlue"/>
+	<!-- Add other resources like TextBox, Menu colors, etc. -->
+
+</ResourceDictionary>
+

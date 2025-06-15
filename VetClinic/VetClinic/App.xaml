@@ -19,6 +19,8 @@
             </ResourceDictionary.MergedDictionaries>
 
             <local:LocalizedStrings x:Key="Strings" />
+            <local:LanguageDisplayConverter x:Key="LanguageDisplayConverter"/>
+            <local:EqualityConverter x:Key="EqualityConverter"/>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

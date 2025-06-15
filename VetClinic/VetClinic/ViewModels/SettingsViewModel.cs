@@ -1,11 +1,11 @@
 ﻿using MaterialDesignThemes.Wpf;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Input;
 using VetClinic.Models;
 using VetClinic.Views;
+using VetClinic.Views.Pages;
 using VetClinic.Util;
 
 namespace VetClinic.ViewModels
@@ -18,8 +18,9 @@ namespace VetClinic.ViewModels
         private string email;
         private string password;
         private string selectedTheme;
+        private string selectedLanguage;
 
-        private User LoggedInUser;
+        private readonly User LoggedInUser;
 
         public string Name
         {
@@ -42,15 +43,13 @@ namespace VetClinic.ViewModels
         public string SelectedTheme
         {
             get => selectedTheme;
-            set
-            {
-                if (selectedTheme != value)
-                {
-                    selectedTheme = value;
-                    //ApplyTheme(selectedTheme);
-                    //OnPropertyChanged();
-                }
-            }
+            set { selectedTheme = value; OnPropertyChanged(); }
+        }
+
+        public string SelectedLanguage
+        {
+            get => selectedLanguage;
+            set { selectedLanguage = value; OnPropertyChanged(); }
         }
 
         public ICommand SaveCommand { get; }
@@ -67,12 +66,13 @@ namespace VetClinic.ViewModels
                 using var db = new VetClinicContext();
                 var pref = db.Userpreferences.FirstOrDefault(p => p.UserId == LoggedInUser.Id);
                 SelectedTheme = pref?.Theme ?? "Light";
+                SelectedLanguage = pref?.Language ?? "en";
             }
 
-            SaveCommand = new RelayCommand(_ => SaveChanges());
+            SaveCommand = new RelayCommand(_ => SaveChanges(SelectedLanguage));
         }
 
-        private void SaveChanges()
+        public void SaveChanges(string selectedCultureCode)
         {
             using var db = new VetClinicContext();
             var user = db.Users.FirstOrDefault(u => u.Id == LoggedInUser.Id);
@@ -91,50 +91,35 @@ namespace VetClinic.ViewModels
                     db.Userpreferences.Add(pref);
                 }
 
-                //pref.Theme = SelectedTheme;
+                if (!string.IsNullOrWhiteSpace(selectedCultureCode))
+                    pref.Language = selectedCultureCode;
+
                 db.SaveChanges();
-
-                MessageBox.Show("Changes saved.", "Settings", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
-        }
-
-        public void ChangeLanguage(string cultureCode)
-        {
-            App.ChangeCulture(cultureCode);
-
-            // Save to DB
-            using var db = new VetClinicContext();
-            var pref = db.Userpreferences.FirstOrDefault(p => p.UserId == LoggedInUser.Id);
-            if (pref == null)
-            {
-                pref = new Userpreference { UserId = LoggedInUser.Id };
-                db.Userpreferences.Add(pref);
             }
 
-            pref.Language = cultureCode;
-            db.SaveChanges();
+            if (!string.IsNullOrWhiteSpace(selectedCultureCode))
+                App.ChangeCulture(selectedCultureCode);
 
-            // Apply language immediately by recreating the main window
-            var mainWindow = App.Current.MainWindow;
-            Window newMain;
+            // Reopen main window and return to Settings
+            var oldWindow = Application.Current.MainWindow;
+            Window newWindow;
 
             if (LoggedInUser.RoleId == 2)
             {
-                newMain = new AdminView(LoggedInUser);
+                newWindow = new AdminView(LoggedInUser);
+                Application.Current.MainWindow = newWindow;
+                newWindow.Show();
+                oldWindow.Close();
+                ((AdminView)newWindow).MainFrame.Navigate(new SettingsPage(LoggedInUser));
             }
             else
             {
-                newMain = new VetView(LoggedInUser);
+                newWindow = new VetView(LoggedInUser);
+                Application.Current.MainWindow = newWindow;
+                newWindow.Show();
+                oldWindow.Close();
+                //((VetView)newWindow).MainFrame.Navigate(new SettingsPage(LoggedInUser));
             }
-
-            App.Current.MainWindow = newMain;
-            newMain.Show();
-            mainWindow.Close();
-        }
-
-        private void ApplyTheme(string theme)
-        {
-            ThemeManager.ApplyTheme(theme);
         }
 
         protected void OnPropertyChanged([CallerMemberName] string name = null)

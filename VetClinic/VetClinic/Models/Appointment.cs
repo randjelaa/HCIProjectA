@@ -23,6 +23,8 @@ public partial class Appointment
 
     public virtual Service Service { get; set; } = null!;
 
+    public DateTime? Deleted { get; set; }
+
     public virtual ICollection<Unpaidservice> Unpaidservices { get; set; } = new List<Unpaidservice>();
 
     public virtual User Vet { get; set; } = null!;

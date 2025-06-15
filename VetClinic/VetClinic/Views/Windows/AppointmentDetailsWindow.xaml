@@ -1,0 +1,43 @@
+﻿<Window x:Class="VetClinic.Views.Windows.AppointmentDetailsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Appointment Details" Height="750" Width="400"
+        WindowStartupLocation="CenterOwner" ResizeMode="NoResize">
+    <StackPanel Margin="20">
+        <TextBlock Text="Appointment Details" FontSize="20" FontWeight="Bold" Margin="0,0,0,20"/>
+
+        <TextBlock Text="{Binding Appointment.Date, StringFormat=Date: {0:d}}" Margin="0,0,0,5"/>
+        <TextBlock Text="{Binding Appointment.Service.Name, StringFormat=Service: {0}}" Margin="0,0,0,5"/>
+
+        <Separator Margin="0,10"/>
+
+        <TextBlock Text="{Binding Appointment.Pet.Name, StringFormat=Pet: {0}}" Margin="0,0,0,5"/>
+        <TextBlock Text="{Binding Appointment.Pet.Species, StringFormat=Species: {0}}" Margin="0,0,0,5"/>
+        <TextBlock Text="{Binding Appointment.Pet.Breed, StringFormat=Breed: {0}}" Margin="0,0,0,5"/>
+
+        <Separator Margin="0,10"/>
+
+        <TextBlock Text="{Binding Appointment.Pet.Owner.Name, StringFormat=Owner: {0}}" Margin="0,0,0,5"/>
+        <TextBlock Text="{Binding Appointment.Pet.Owner.Email, StringFormat=Email: {0}}" Margin="0,0,0,5"/>
+
+        <Button Content="Add Medical Record" Command="{Binding AddMedicalRecordCommand}" Margin="0,20,0,0"/>
+
+        <StackPanel Visibility="{Binding IsAddingRecord, Converter={StaticResource BoolToVisibilityConverter}}" Margin="0,20,0,0">
+            <TextBlock Text="Diagnosis" />
+            <TextBox Text="{Binding Diagnosis}" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Treatment" />
+            <TextBox Text="{Binding Treatment}" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Medications" />
+            <TextBox Text="{Binding Medications}" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Notes" />
+            <TextBox Text="{Binding Notes}" Margin="0,0,0,10"/>
+
+            <Button Content="Save Record" Command="{Binding SaveRecordCommand}" />
+        </StackPanel>
+
+        <Button Content="Close" Click="Close_Click" HorizontalAlignment="Right" Margin="0,10,0,0"/>
+    </StackPanel>
+</Window>

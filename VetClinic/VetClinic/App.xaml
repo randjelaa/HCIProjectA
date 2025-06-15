@@ -21,6 +21,7 @@
             <local:LocalizedStrings x:Key="Strings" />
             <local:LanguageDisplayConverter x:Key="LanguageDisplayConverter"/>
             <local:EqualityConverter x:Key="EqualityConverter"/>
+            <local:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>

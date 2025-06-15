@@ -118,7 +118,7 @@ namespace VetClinic.ViewModels
                 Application.Current.MainWindow = newWindow;
                 newWindow.Show();
                 oldWindow.Close();
-                //((VetView)newWindow).MainFrame.Navigate(new SettingsPage(LoggedInUser));
+                ((VetView)newWindow).MainFrame.Navigate(new SettingsPage(LoggedInUser));
             }
         }
 

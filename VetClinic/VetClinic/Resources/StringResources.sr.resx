@@ -222,4 +222,25 @@
   <data name="Logout" xml:space="preserve">
     <value>Odjava</value>
   </data>
+  <data name="VetView" xml:space="preserve">
+    <value>VetClinic - Veterinar</value>
+  </data>
+  <data name="Appointments" xml:space="preserve">
+    <value>Termini</value>
+  </data>
+  <data name="UpcomingAppointments" xml:space="preserve">
+    <value>Predstojeći termini</value>
+  </data>
+  <data name="Pet" xml:space="preserve">
+    <value>Ljubimac</value>
+  </data>
+  <data name="View" xml:space="preserve">
+    <value>Pregledaj</value>
+  </data>
+  <data name="AddRecord" xml:space="preserve">
+    <value>Dodaj zapis</value>
+  </data>
+  <data name="MissedAppointments" xml:space="preserve">
+    <value>Propušteni termini</value>
+  </data>
 </root>

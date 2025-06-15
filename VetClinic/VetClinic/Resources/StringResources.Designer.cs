@@ -79,6 +79,15 @@ namespace VetClinic.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add record.
+        /// </summary>
+        internal static string AddRecord {
+            get {
+                return ResourceManager.GetString("AddRecord", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to VetClinic - Admin.
         /// </summary>
         internal static string AdminView {
@@ -93,6 +102,15 @@ namespace VetClinic.Resources {
         internal static string Amount {
             get {
                 return ResourceManager.GetString("Amount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Appointments.
+        /// </summary>
+        internal static string Appointments {
+            get {
+                return ResourceManager.GetString("Appointments", resourceCulture);
             }
         }
         
@@ -232,6 +250,15 @@ namespace VetClinic.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Missed appointments.
+        /// </summary>
+        internal static string MissedAppointments {
+            get {
+                return ResourceManager.GetString("MissedAppointments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Name.
         /// </summary>
         internal static string Name {
@@ -255,6 +282,15 @@ namespace VetClinic.Resources {
         internal static string Payments {
             get {
                 return ResourceManager.GetString("Payments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pet.
+        /// </summary>
+        internal static string Pet {
+            get {
+                return ResourceManager.GetString("Pet", resourceCulture);
             }
         }
         
@@ -340,6 +376,15 @@ namespace VetClinic.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Upcoming appointments.
+        /// </summary>
+        internal static string UpcomingAppointments {
+            get {
+                return ResourceManager.GetString("UpcomingAppointments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to User.
         /// </summary>
         internal static string User {
@@ -363,6 +408,24 @@ namespace VetClinic.Resources {
         internal static string Username {
             get {
                 return ResourceManager.GetString("Username", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to VetClinic - Vet.
+        /// </summary>
+        internal static string VetView {
+            get {
+                return ResourceManager.GetString("VetView", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to View.
+        /// </summary>
+        internal static string View {
+            get {
+                return ResourceManager.GetString("View", resourceCulture);
             }
         }
         

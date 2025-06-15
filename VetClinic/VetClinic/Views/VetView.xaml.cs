@@ -1,18 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows;
 using VetClinic.Models;
+using VetClinic.ViewModels;
+using VetClinic.Util;
+using System.Linq;
 
 
 namespace VetClinic.Views
@@ -24,7 +14,19 @@ namespace VetClinic.Views
     {
         public VetView(User loggedInUser)
         {
+            // Read preferred language before InitializeComponent
+            using var db = new VetClinicContext();
+            var pref = db.Userpreferences.FirstOrDefault(p => p.UserId == loggedInUser.Id);
+            if (pref?.Language is string lang)
+            {
+                App.ChangeCulture(lang); // before UI loads
+            }
+
             InitializeComponent();
+            var vm = new VetViewModel(loggedInUser);
+            DataContext = vm;
+            vm.FrameRef = MainFrame;
+            MainFrame.Navigate(new Pages.AppointmentsPage(loggedInUser));
         }
     }
 }

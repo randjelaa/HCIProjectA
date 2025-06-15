@@ -222,4 +222,25 @@
   <data name="Logout" xml:space="preserve">
     <value>Logout</value>
   </data>
+  <data name="VetView" xml:space="preserve">
+    <value>VetClinic - Vet</value>
+  </data>
+  <data name="Appointments" xml:space="preserve">
+    <value>Appointments</value>
+  </data>
+  <data name="UpcomingAppointments" xml:space="preserve">
+    <value>Upcoming appointments</value>
+  </data>
+  <data name="Pet" xml:space="preserve">
+    <value>Pet</value>
+  </data>
+  <data name="View" xml:space="preserve">
+    <value>View</value>
+  </data>
+  <data name="AddRecord" xml:space="preserve">
+    <value>Add record</value>
+  </data>
+  <data name="MissedAppointments" xml:space="preserve">
+    <value>Missed appointments</value>
+  </data>
 </root>

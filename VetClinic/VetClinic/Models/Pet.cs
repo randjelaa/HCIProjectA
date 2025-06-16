@@ -13,6 +13,8 @@ public partial class Pet
 
     public string? Breed { get; set; }
 
+    public DateTime? Deleted { get; set; }
+
     public int OwnerId { get; set; }
 
     public virtual ICollection<Appointment> Appointments { get; set; } = new List<Appointment>();

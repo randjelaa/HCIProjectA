@@ -13,8 +13,8 @@
                     Margin="10" Command="{Binding NavigateActiveAppointmentsCommand}"/>
             <Button Content="{Binding Source={StaticResource Strings}, Path=[ClosedAppointments]}"
                     Margin="10" Command="{Binding NavigateClosedAppointmentsCommand}"/>
-            <Button Content="{Binding Source={StaticResource Strings}, Path=[Reports]}" 
-                    Margin="10" Command="{Binding NavigateReportsCommand}"/>
+            <Button Content="{Binding Source={StaticResource Strings}, Path=[Pets]}" 
+                    Margin="10" Command="{Binding NavigatePetsCommand}"/>
             <Button Content="{Binding Source={StaticResource Strings}, Path=[Settings]}" 
                     Margin="10" Command="{Binding NavigateSettingsCommand}"/>
             <Button Content="{Binding Source={StaticResource Strings}, Path=[Logout]}"

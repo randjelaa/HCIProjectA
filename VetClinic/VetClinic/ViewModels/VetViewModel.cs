@@ -14,7 +14,7 @@ namespace VetClinic.ViewModels
 
         public ICommand NavigateActiveAppointmentsCommand { get; }
         public ICommand NavigateClosedAppointmentsCommand { get; }
-        public ICommand NavigateReportsCommand { get; }
+        public ICommand NavigatePetsCommand { get; }
         public ICommand NavigateSettingsCommand { get; }
 
         public ICommand LogoutCommand { get; }
@@ -27,7 +27,7 @@ namespace VetClinic.ViewModels
 
             NavigateActiveAppointmentsCommand = new RelayCommand(_ => Navigate(new ActiveAppointmentsPage(LoggedInUser)));
             NavigateClosedAppointmentsCommand = new RelayCommand(_ => Navigate(new ClosedAppointmentsPage(LoggedInUser)));
-            NavigateReportsCommand = new RelayCommand(_ => Navigate(new ReportsPage()));
+            NavigatePetsCommand = new RelayCommand(_ => Navigate(new PetsPage()));
             NavigateSettingsCommand = new RelayCommand(_ => Navigate(new SettingsPage(LoggedInUser)));
 
             LogoutCommand = new RelayCommand(ExecuteLogout);

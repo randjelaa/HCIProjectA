@@ -250,6 +250,15 @@ namespace VetClinic.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to From:.
+        /// </summary>
+        internal static string From {
+            get {
+                return ResourceManager.GetString("From", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Income over time.
         /// </summary>
         internal static string Income {
@@ -327,6 +336,15 @@ namespace VetClinic.Resources {
         internal static string MedicalRecord {
             get {
                 return ResourceManager.GetString("MedicalRecord", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Medical records.
+        /// </summary>
+        internal static string MedicalRecords {
+            get {
+                return ResourceManager.GetString("MedicalRecords", resourceCulture);
             }
         }
         
@@ -412,6 +430,15 @@ namespace VetClinic.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Pets.
+        /// </summary>
+        internal static string Pets {
+            get {
+                return ResourceManager.GetString("Pets", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Most popular services.
         /// </summary>
         internal static string PopularServices {
@@ -457,6 +484,15 @@ namespace VetClinic.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Search.
+        /// </summary>
+        internal static string Search {
+            get {
+                return ResourceManager.GetString("Search", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Service.
         /// </summary>
         internal static string Service {
@@ -489,6 +525,15 @@ namespace VetClinic.Resources {
         internal static string Status {
             get {
                 return ResourceManager.GetString("Status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To:.
+        /// </summary>
+        internal static string To {
+            get {
+                return ResourceManager.GetString("To", resourceCulture);
             }
         }
         

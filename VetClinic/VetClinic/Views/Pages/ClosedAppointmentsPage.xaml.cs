@@ -5,17 +5,17 @@ using VetClinic.ViewModels;
 
 namespace VetClinic.Views.Pages
 {
-    public partial class AppointmentsPage : Page
+    public partial class ClosedAppointmentsPage : Page
     {
-        public AppointmentsPage(User loggedInUser)
+        public ClosedAppointmentsPage(User vet)
         {
             InitializeComponent();
-            DataContext = new AppointmentsViewModel(loggedInUser);
+            DataContext = new ClosedAppointmentsViewModel(vet);
         }
 
         private void ClearFilter_Click(object sender, RoutedEventArgs e)
         {
-            ((AppointmentsViewModel)DataContext).SelectedDate = null;
+            ((ClosedAppointmentsViewModel)DataContext).SelectedDate = null;
         }
     }
 }

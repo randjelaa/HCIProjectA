@@ -70,6 +70,15 @@ namespace VetClinic.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Active appointments.
+        /// </summary>
+        internal static string ActiveAppointments {
+            get {
+                return ResourceManager.GetString("ActiveAppointments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add.
         /// </summary>
         internal static string Add {
@@ -120,6 +129,15 @@ namespace VetClinic.Resources {
         internal static string Back {
             get {
                 return ResourceManager.GetString("Back", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Closed appointments.
+        /// </summary>
+        internal static string ClosedAppointments {
+            get {
+                return ResourceManager.GetString("ClosedAppointments", resourceCulture);
             }
         }
         

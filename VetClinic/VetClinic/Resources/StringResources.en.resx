@@ -243,4 +243,10 @@
   <data name="MissedAppointments" xml:space="preserve">
     <value>Missed appointments</value>
   </data>
+  <data name="ActiveAppointments" xml:space="preserve">
+    <value>Active appointments</value>
+  </data>
+  <data name="ClosedAppointments" xml:space="preserve">
+    <value>Closed appointments</value>
+  </data>
 </root>

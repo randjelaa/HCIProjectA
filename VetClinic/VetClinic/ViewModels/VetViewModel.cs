@@ -12,8 +12,8 @@ namespace VetClinic.ViewModels
     {
         public User LoggedInUser { get; }
 
-        public ICommand NavigateAppointmentsCommand { get; }
-        public ICommand NavigateServicesCommand { get; }
+        public ICommand NavigateActiveAppointmentsCommand { get; }
+        public ICommand NavigateClosedAppointmentsCommand { get; }
         public ICommand NavigateReportsCommand { get; }
         public ICommand NavigateSettingsCommand { get; }
 
@@ -25,8 +25,8 @@ namespace VetClinic.ViewModels
         {
             LoggedInUser = user;
 
-            NavigateAppointmentsCommand = new RelayCommand(_ => Navigate(new AppointmentsPage(LoggedInUser)));
-            NavigateServicesCommand = new RelayCommand(_ => Navigate(new ServiceManagementPage()));
+            NavigateActiveAppointmentsCommand = new RelayCommand(_ => Navigate(new ActiveAppointmentsPage(LoggedInUser)));
+            NavigateClosedAppointmentsCommand = new RelayCommand(_ => Navigate(new ClosedAppointmentsPage(LoggedInUser)));
             NavigateReportsCommand = new RelayCommand(_ => Navigate(new ReportsPage()));
             NavigateSettingsCommand = new RelayCommand(_ => Navigate(new SettingsPage(LoggedInUser)));
 

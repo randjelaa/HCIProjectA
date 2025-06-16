@@ -4,12 +4,12 @@ using VetClinic.ViewModels;
 
 namespace VetClinic.Views.Windows
 {
-    public partial class AppointmentDetailsWindow : Window
+    public partial class ActiveAppointmentDetailsWindow : Window
     {
-        public AppointmentDetailsWindow(Appointment appointment)
+        public ActiveAppointmentDetailsWindow(Appointment appointment)
         {
             InitializeComponent();
-            DataContext = new AppointmentDetailsViewModel(appointment, this);
+            DataContext = new ActiveAppointmentDetailsViewModel(appointment, this);
         }
 
         private void Close_Click(object sender, RoutedEventArgs e)

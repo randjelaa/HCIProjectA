@@ -5,7 +5,7 @@ using VetClinic.Models;
 
 namespace VetClinic.ViewModels
 {
-    public class AppointmentDetailsViewModel : BaseViewModel
+    public class ActiveAppointmentDetailsViewModel : BaseViewModel
     {
         public Appointment Appointment { get; }
         public ICommand AddMedicalRecordCommand { get; }
@@ -27,7 +27,7 @@ namespace VetClinic.ViewModels
         public string Notes { get; set; }
 
 
-        public AppointmentDetailsViewModel(Appointment appointment, Window window)
+        public ActiveAppointmentDetailsViewModel(Appointment appointment, Window window)
         {
             Appointment = appointment;
             _window = window;

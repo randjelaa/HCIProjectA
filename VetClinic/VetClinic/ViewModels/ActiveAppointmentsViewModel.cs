@@ -9,7 +9,7 @@ using VetClinic.Views.Windows;
 
 namespace VetClinic.ViewModels
 {
-    public class AppointmentsViewModel : BaseViewModel
+    public class ActiveAppointmentsViewModel : BaseViewModel
     {
         private readonly User loggedInVet;
         public ObservableCollection<Appointment> UpcomingAppointments { get; set; } = new();
@@ -30,15 +30,13 @@ namespace VetClinic.ViewModels
         public Appointment SelectedAppointment { get; set; }
 
         public ICommand ViewAppointmentCommand { get; }
-        public ICommand AddRecordCommand { get; }
         public ICommand DeleteAppointmentCommand { get; }
         public ICommand ClearFilterCommand { get; }
 
-        public AppointmentsViewModel(User vet)
+        public ActiveAppointmentsViewModel(User vet)
         {
             loggedInVet = vet;
             ViewAppointmentCommand = new RelayCommand(ViewAppointment);
-            AddRecordCommand = new RelayCommand(AddMedicalRecord);
             DeleteAppointmentCommand = new RelayCommand(DeleteAppointment);
             ClearFilterCommand = new RelayCommand(_ =>
             {
@@ -100,22 +98,12 @@ namespace VetClinic.ViewModels
                 db.Entry(appointment).Reference(a => a.Service).Load();
                 db.Entry(appointment.Pet).Reference(p => p.Owner).Load();
 
-                var detailsView = new AppointmentDetailsWindow(appointment);
+                var detailsView = new ActiveAppointmentDetailsWindow(appointment);
                 detailsView.ShowDialog();
 
                 // Reload appointments in case a medical record was added
                 LoadAppointments();
             }
-        }
-
-        private void AddMedicalRecord(object parameter)
-        {
-            /*if (parameter is Appointment appointment)
-            {
-                var addView = new AddMedicalRecordView(appointment);
-                addView.ShowDialog();
-                LoadAppointments(); // Reload to reflect new records
-            }*/
         }
 
         private void DeleteAppointment(object parameter)

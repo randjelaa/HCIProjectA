@@ -243,4 +243,10 @@
   <data name="MissedAppointments" xml:space="preserve">
     <value>Propušteni termini</value>
   </data>
+  <data name="ActiveAppointments" xml:space="preserve">
+    <value>Aktivni termini</value>
+  </data>
+  <data name="ClosedAppointments" xml:space="preserve">
+    <value>Zaključeni termini</value>
+  </data>
 </root>

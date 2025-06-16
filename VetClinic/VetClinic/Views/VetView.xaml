@@ -9,10 +9,10 @@
         <StackPanel DockPanel.Dock="Left" Width="200" Background="#EEE">
             <TextBlock Text="{Binding Source={StaticResource Strings}, Path=[Menu]}" 
                        FontSize="18" FontWeight="Bold" Margin="10"/>
-            <Button Content="{Binding Source={StaticResource Strings}, Path=[Appointments]}" 
-                    Margin="10" Command="{Binding NavigateAppointmentsCommand}"/>
-            <Button Content="{Binding Source={StaticResource Strings}, Path=[ManageServices]}"
-                    Margin="10" Command="{Binding NavigateServicesCommand}"/>
+            <Button Content="{Binding Source={StaticResource Strings}, Path=[ActiveAppointments]}" 
+                    Margin="10" Command="{Binding NavigateActiveAppointmentsCommand}"/>
+            <Button Content="{Binding Source={StaticResource Strings}, Path=[ClosedAppointments]}"
+                    Margin="10" Command="{Binding NavigateClosedAppointmentsCommand}"/>
             <Button Content="{Binding Source={StaticResource Strings}, Path=[Reports]}" 
                     Margin="10" Command="{Binding NavigateReportsCommand}"/>
             <Button Content="{Binding Source={StaticResource Strings}, Path=[Settings]}" 

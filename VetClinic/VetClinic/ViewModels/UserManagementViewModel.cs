@@ -13,12 +13,14 @@ public class UserManagementViewModel : BaseViewModel
 
     public string SearchText { get; set; }
     public ICommand SearchCommand { get; }
+    public ICommand ClearSearchCommand { get; }
     public ICommand AddUserCommand { get; }
     public ICommand DeleteUserCommand { get; }
 
     public UserManagementViewModel()
     {
         SearchCommand = new RelayCommand(_ => ApplySearch());
+        ClearSearchCommand = new RelayCommand(_ => ClearSearch());
         AddUserCommand = new RelayCommand(_ => AddUser());
         DeleteUserCommand = new RelayCommand(userObj => DeleteUser(userObj as User));
         LoadUsers();
@@ -38,6 +40,11 @@ public class UserManagementViewModel : BaseViewModel
             FilteredUsers.Add(user);
     }
 
+    private void ClearSearch()
+    {
+        SearchText = string.Empty;
+        ApplySearch();
+    }
     private void AddUser()
     {
         var window = new AddUserWindow { Owner = Application.Current.MainWindow };

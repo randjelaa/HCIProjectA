@@ -303,4 +303,7 @@
   <data name="To" xml:space="preserve">
     <value>Do:</value>
   </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Obriši</value>
+  </data>
 </root>

@@ -15,6 +15,9 @@
                 <TextBox Width="200" Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" 
                          Margin="0,0,10,0"/>
                 <Button Content="{Binding Source={StaticResource Strings}, Path=[Search]}" Command="{Binding SearchCommand}" />
+                <Button Content="{Binding Source={StaticResource Strings}, Path=[Clear]}"
+                        Command="{Binding ClearSearchCommand}"
+                        Margin="5,0,0,0"/>
             </StackPanel>
 
             <!-- Pet Table -->

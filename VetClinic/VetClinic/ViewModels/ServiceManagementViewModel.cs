@@ -21,6 +21,7 @@ namespace VetClinic.ViewModels
         public string SearchText { get; set; }
 
         public ICommand SearchCommand { get; }
+        public ICommand ClearSearchCommand { get; }
         public ICommand AddServiceCommand { get; }
         public ICommand EditServiceCommand { get; }
         public ICommand DeleteServiceCommand { get; }
@@ -30,6 +31,7 @@ namespace VetClinic.ViewModels
             LoadServices();
 
             SearchCommand = new RelayCommand(_ => ApplySearch());
+            ClearSearchCommand = new RelayCommand(_ => ClearSearch());
             AddServiceCommand = new RelayCommand(_ => ShowServiceDialog());
             EditServiceCommand = new RelayCommand(service => ShowServiceDialog(service as Service));
             DeleteServiceCommand = new RelayCommand(serviceObj =>
@@ -51,6 +53,12 @@ namespace VetClinic.ViewModels
             FilteredServices.Clear();
             foreach (var service in filtered)
                 FilteredServices.Add(service);
+        }
+
+        private void ClearSearch()
+        {
+            SearchText = string.Empty;
+            ApplySearch();
         }
 
         private void LoadServices()

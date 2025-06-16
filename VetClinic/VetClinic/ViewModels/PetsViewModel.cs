@@ -19,6 +19,7 @@ namespace VetClinic.ViewModels
 
         public string SearchText { get; set; }
         public ICommand SearchCommand { get; }
+        public ICommand ClearSearchCommand { get; }
 
         public ICommand ViewRecordsCommand { get; }
         public Pet SelectedPet { get; set; }
@@ -27,6 +28,7 @@ namespace VetClinic.ViewModels
         {
             ViewRecordsCommand = new RelayCommand(ViewRecords);
             SearchCommand = new RelayCommand(Search);
+            ClearSearchCommand = new RelayCommand(_ => ClearSearch());
             LoadPets();
         }
 
@@ -73,6 +75,12 @@ namespace VetClinic.ViewModels
             FilteredPets.Clear();
             foreach (var pet in filtered)
                 FilteredPets.Add(pet);
+        }
+
+        private void ClearSearch()
+        {
+            SearchText = string.Empty;
+            Search(null);
         }
 
         private void ViewRecords(object obj)

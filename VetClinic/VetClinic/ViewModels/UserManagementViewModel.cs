@@ -11,7 +11,16 @@ public class UserManagementViewModel : BaseViewModel
     public ObservableCollection<User> Users { get; set; } = new();
     public ObservableCollection<User> FilteredUsers { get; set; } = new();
 
-    public string SearchText { get; set; }
+    private string _searchText;
+    public string SearchText
+    {
+        get => _searchText;
+        set
+        {
+            SetProperty(ref _searchText, value);
+            ApplySearch();
+        }
+    }
     public ICommand SearchCommand { get; }
     public ICommand ClearSearchCommand { get; }
     public ICommand AddUserCommand { get; }

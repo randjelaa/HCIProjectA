@@ -18,7 +18,16 @@ namespace VetClinic.ViewModels
         public ObservableCollection<Service> Services { get; set; } = new();
         public ObservableCollection<Service> FilteredServices { get; set; } = new();
 
-        public string SearchText { get; set; }
+        private string _searchText;
+        public string SearchText
+        {
+            get => _searchText;
+            set
+            {
+                SetProperty(ref _searchText, value);
+                ApplySearch();
+            }
+        }
 
         public ICommand SearchCommand { get; }
         public ICommand ClearSearchCommand { get; }

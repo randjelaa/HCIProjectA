@@ -17,7 +17,16 @@ namespace VetClinic.ViewModels
         public ObservableCollection<Pet> Pets { get; set; } = new();
         public ObservableCollection<Pet> FilteredPets { get; set; } = new();
 
-        public string SearchText { get; set; }
+        private string _searchText;
+        public string SearchText
+        {
+            get => _searchText;
+            set
+            {
+                SetProperty(ref _searchText, value);
+                Search();
+            }
+        }
         public ICommand SearchCommand { get; }
         public ICommand ClearSearchCommand { get; }
 
@@ -27,7 +36,7 @@ namespace VetClinic.ViewModels
         public PetsViewModel()
         {
             ViewRecordsCommand = new RelayCommand(ViewRecords);
-            SearchCommand = new RelayCommand(Search);
+            SearchCommand = new RelayCommand(_ => Search());
             ClearSearchCommand = new RelayCommand(_ => ClearSearch());
             LoadPets();
         }
@@ -54,7 +63,7 @@ namespace VetClinic.ViewModels
             });
         }
 
-        private void Search(Object obj)
+        private void Search()
         {
             if (string.IsNullOrWhiteSpace(SearchText))
             {
@@ -80,7 +89,7 @@ namespace VetClinic.ViewModels
         private void ClearSearch()
         {
             SearchText = string.Empty;
-            Search(null);
+            Search();
         }
 
         private void ViewRecords(object obj)

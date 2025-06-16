@@ -115,6 +115,24 @@ namespace VetClinic.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Appointment.
+        /// </summary>
+        internal static string Appointment {
+            get {
+                return ResourceManager.GetString("Appointment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Appointment details.
+        /// </summary>
+        internal static string AppointmentDetails {
+            get {
+                return ResourceManager.GetString("AppointmentDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Appointments.
         /// </summary>
         internal static string Appointments {
@@ -129,6 +147,33 @@ namespace VetClinic.Resources {
         internal static string Back {
             get {
                 return ResourceManager.GetString("Back", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Breed.
+        /// </summary>
+        internal static string Breed {
+            get {
+                return ResourceManager.GetString("Breed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clear filter.
+        /// </summary>
+        internal static string ClearFilter {
+            get {
+                return ResourceManager.GetString("ClearFilter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Close.
+        /// </summary>
+        internal static string Close {
+            get {
+                return ResourceManager.GetString("Close", resourceCulture);
             }
         }
         
@@ -169,6 +214,15 @@ namespace VetClinic.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Diagnosis.
+        /// </summary>
+        internal static string Diagnosis {
+            get {
+                return ResourceManager.GetString("Diagnosis", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Duration (min).
         /// </summary>
         internal static string DurationMinutes {
@@ -183,6 +237,15 @@ namespace VetClinic.Resources {
         internal static string Edit {
             get {
                 return ResourceManager.GetString("Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Filter by date.
+        /// </summary>
+        internal static string Filter {
+            get {
+                return ResourceManager.GetString("Filter", resourceCulture);
             }
         }
         
@@ -259,6 +322,24 @@ namespace VetClinic.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Medical record.
+        /// </summary>
+        internal static string MedicalRecord {
+            get {
+                return ResourceManager.GetString("MedicalRecord", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Medications.
+        /// </summary>
+        internal static string Medications {
+            get {
+                return ResourceManager.GetString("Medications", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Menu.
         /// </summary>
         internal static string Menu {
@@ -282,6 +363,24 @@ namespace VetClinic.Resources {
         internal static string Name {
             get {
                 return ResourceManager.GetString("Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Notes.
+        /// </summary>
+        internal static string Notes {
+            get {
+                return ResourceManager.GetString("Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Owner.
+        /// </summary>
+        internal static string Owner {
+            get {
+                return ResourceManager.GetString("Owner", resourceCulture);
             }
         }
         
@@ -376,11 +475,29 @@ namespace VetClinic.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Species.
+        /// </summary>
+        internal static string Species {
+            get {
+                return ResourceManager.GetString("Species", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Status.
         /// </summary>
         internal static string Status {
             get {
                 return ResourceManager.GetString("Status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Treatment.
+        /// </summary>
+        internal static string Treatment {
+            get {
+                return ResourceManager.GetString("Treatment", resourceCulture);
             }
         }
         

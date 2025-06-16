@@ -1,43 +1,82 @@
 ﻿<Window x:Class="VetClinic.Views.Windows.ActiveAppointmentDetailsWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Appointment Details" Height="750" Width="400"
+        Title="{Binding Source={StaticResource Strings}, Path=[Appointment]}"
+        Height="750" Width="400"
         WindowStartupLocation="CenterOwner" ResizeMode="NoResize">
     <StackPanel Margin="20">
-        <TextBlock Text="Appointment Details" FontSize="20" FontWeight="Bold" Margin="0,0,0,20"/>
 
-        <TextBlock Text="{Binding Appointment.Date, StringFormat=Date: {0:d}}" Margin="0,0,0,5"/>
-        <TextBlock Text="{Binding Appointment.Service.Name, StringFormat=Service: {0}}" Margin="0,0,0,5"/>
+        <TextBlock Text="{Binding Source={StaticResource Strings}, Path=[AppointmentDetails]}"
+                   FontSize="20" FontWeight="Bold" Margin="0,0,0,20"/>
 
-        <Separator Margin="0,10"/>
-
-        <TextBlock Text="{Binding Appointment.Pet.Name, StringFormat=Pet: {0}}" Margin="0,0,0,5"/>
-        <TextBlock Text="{Binding Appointment.Pet.Species, StringFormat=Species: {0}}" Margin="0,0,0,5"/>
-        <TextBlock Text="{Binding Appointment.Pet.Breed, StringFormat=Breed: {0}}" Margin="0,0,0,5"/>
-
-        <Separator Margin="0,10"/>
-
-        <TextBlock Text="{Binding Appointment.Pet.Owner.Name, StringFormat=Owner: {0}}" Margin="0,0,0,5"/>
-        <TextBlock Text="{Binding Appointment.Pet.Owner.Email, StringFormat=Email: {0}}" Margin="0,0,0,5"/>
-
-        <Button Content="Add Medical Record" Command="{Binding AddMedicalRecordCommand}" Margin="0,20,0,0"/>
-
-        <StackPanel Visibility="{Binding IsAddingRecord, Converter={StaticResource BoolToVisibilityConverter}}" Margin="0,20,0,0">
-            <TextBlock Text="Diagnosis" />
-            <TextBox Text="{Binding Diagnosis}" Margin="0,0,0,10"/>
-
-            <TextBlock Text="Treatment" />
-            <TextBox Text="{Binding Treatment}" Margin="0,0,0,10"/>
-
-            <TextBlock Text="Medications" />
-            <TextBox Text="{Binding Medications}" Margin="0,0,0,10"/>
-
-            <TextBlock Text="Notes" />
-            <TextBox Text="{Binding Notes}" Margin="0,0,0,10"/>
-
-            <Button Content="Save Record" Command="{Binding SaveRecordCommand}" />
+        <!-- Appointment Info -->
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+            <TextBlock Text="{Binding Source={StaticResource Strings}, Path=[Date]}" FontWeight="Bold"/>
+            <TextBlock Text="{Binding Appointment.Date, StringFormat={} {0:d}}" Margin="5,0,0,0"/>
         </StackPanel>
 
-        <Button Content="Close" Click="Close_Click" HorizontalAlignment="Right" Margin="0,10,0,0"/>
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+            <TextBlock Text="{Binding Source={StaticResource Strings}, Path=[Service]}" FontWeight="Bold"/>
+            <TextBlock Text="{Binding Appointment.Service.Name}" Margin="5,0,0,0"/>
+        </StackPanel>
+
+        <Separator Margin="0,10"/>
+
+        <!-- Pet Info -->
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+            <TextBlock Text="{Binding Source={StaticResource Strings}, Path=[Pet]}" FontWeight="Bold"/>
+            <TextBlock Text="{Binding Appointment.Pet.Name}" Margin="5,0,0,0"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+            <TextBlock Text="{Binding Source={StaticResource Strings}, Path=[Species]}" FontWeight="Bold"/>
+            <TextBlock Text="{Binding Appointment.Pet.Species}" Margin="5,0,0,0"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+            <TextBlock Text="{Binding Source={StaticResource Strings}, Path=[Breed]}" FontWeight="Bold"/>
+            <TextBlock Text="{Binding Appointment.Pet.Breed}" Margin="5,0,0,0"/>
+        </StackPanel>
+
+        <Separator Margin="0,10"/>
+
+        <!-- Owner Info -->
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+            <TextBlock Text="{Binding Source={StaticResource Strings}, Path=[Owner]}" FontWeight="Bold"/>
+            <TextBlock Text="{Binding Appointment.Pet.Owner.Name}" Margin="5,0,0,0"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+            <TextBlock Text="Email" FontWeight="Bold"/>
+            <TextBlock Text="{Binding Appointment.Pet.Owner.Email}" Margin="5,0,0,0"/>
+        </StackPanel>
+
+        <!-- Add Record Button -->
+        <Button Content="{Binding Source={StaticResource Strings}, Path=[AddRecord]}"
+                Command="{Binding AddMedicalRecordCommand}"
+                Margin="0,20,0,0"/>
+
+        <!-- Medical Record Form -->
+        <StackPanel Visibility="{Binding IsAddingRecord, Converter={StaticResource BoolToVisibilityConverter}}" Margin="0,20,0,0">
+            <TextBlock Text="{Binding Source={StaticResource Strings}, Path=[Diagnosis]}" />
+            <TextBox Text="{Binding Diagnosis}" Margin="0,0,0,10"/>
+
+            <TextBlock Text="{Binding Source={StaticResource Strings}, Path=[Treatment]}" />
+            <TextBox Text="{Binding Treatment}" Margin="0,0,0,10"/>
+
+            <TextBlock Text="{Binding Source={StaticResource Strings}, Path=[Medications]}" />
+            <TextBox Text="{Binding Medications}" Margin="0,0,0,10"/>
+
+            <TextBlock Text="{Binding Source={StaticResource Strings}, Path=[Notes]}" />
+            <TextBox Text="{Binding Notes}" Margin="0,0,0,10"/>
+
+            <Button Content="{Binding Source={StaticResource Strings}, Path=[Save]}"
+                    Command="{Binding SaveRecordCommand}" />
+        </StackPanel>
+
+        <Button Content="{Binding Source={StaticResource Strings}, Path=[Close]}"
+                Click="Close_Click"
+                HorizontalAlignment="Right"
+                Margin="0,10,0,0"/>
     </StackPanel>
 </Window>

@@ -249,4 +249,43 @@
   <data name="ClosedAppointments" xml:space="preserve">
     <value>Closed appointments</value>
   </data>
+  <data name="Filter" xml:space="preserve">
+    <value>Filter by date</value>
+  </data>
+  <data name="ClearFilter" xml:space="preserve">
+    <value>Clear filter</value>
+  </data>
+  <data name="AppointmentDetails" xml:space="preserve">
+    <value>Appointment details</value>
+  </data>
+  <data name="Appointment" xml:space="preserve">
+    <value>Appointment</value>
+  </data>
+  <data name="Diagnosis" xml:space="preserve">
+    <value>Diagnosis</value>
+  </data>
+  <data name="Medications" xml:space="preserve">
+    <value>Mediactions</value>
+  </data>
+  <data name="Treatment" xml:space="preserve">
+    <value>Treatment</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="MedicalRecord" xml:space="preserve">
+    <value>Medical record</value>
+  </data>
+  <data name="Species" xml:space="preserve">
+    <value>Species</value>
+  </data>
+  <data name="Breed" xml:space="preserve">
+    <value>Breed</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>Owner</value>
+  </data>
 </root>

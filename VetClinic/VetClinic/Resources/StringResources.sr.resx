@@ -249,4 +249,43 @@
   <data name="ClosedAppointments" xml:space="preserve">
     <value>Zaključeni termini</value>
   </data>
+  <data name="Filter" xml:space="preserve">
+    <value>Filtriraj po datumu</value>
+  </data>
+  <data name="ClearFilter" xml:space="preserve">
+    <value>Obriši filter</value>
+  </data>
+  <data name="AppointmentDetails" xml:space="preserve">
+    <value>Detalji o terminu</value>
+  </data>
+  <data name="Appointment" xml:space="preserve">
+    <value>Termin</value>
+  </data>
+  <data name="Diagnosis" xml:space="preserve">
+    <value>Dijagnoza</value>
+  </data>
+  <data name="Medications" xml:space="preserve">
+    <value>Lijekovi</value>
+  </data>
+  <data name="Treatment" xml:space="preserve">
+    <value>Tretman</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>Bilješke</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Zatvori</value>
+  </data>
+  <data name="MedicalRecord" xml:space="preserve">
+    <value>Medicinski zapis</value>
+  </data>
+  <data name="Species" xml:space="preserve">
+    <value>Vrsta</value>
+  </data>
+  <data name="Breed" xml:space="preserve">
+    <value>Rasa</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>Vlasnik</value>
+  </data>
 </root>

@@ -15,26 +15,42 @@ namespace VetClinic.ViewModels
 {
     public class ServicesManagementViewModel : BaseViewModel
     {
-        public ObservableCollection<Service> Services { get; set; }
+        public ObservableCollection<Service> Services { get; set; } = new();
+        public ObservableCollection<Service> FilteredServices { get; set; } = new();
 
+        public string SearchText { get; set; }
+
+        public ICommand SearchCommand { get; }
         public ICommand AddServiceCommand { get; }
         public ICommand EditServiceCommand { get; }
         public ICommand DeleteServiceCommand { get; }
 
         public ServicesManagementViewModel()
         {
-            Services = new ObservableCollection<Service>();
             LoadServices();
 
+            SearchCommand = new RelayCommand(_ => ApplySearch());
             AddServiceCommand = new RelayCommand(_ => ShowServiceDialog());
             EditServiceCommand = new RelayCommand(service => ShowServiceDialog(service as Service));
             DeleteServiceCommand = new RelayCommand(serviceObj =>
             {
                 if (serviceObj is Service service)
-                {
                     DeleteService(service);
-                }
             });
+        }
+
+        private void ApplySearch()
+        {
+            var query = SearchText?.ToLower() ?? "";
+
+            var filtered = Services.Where(s =>
+                (!string.IsNullOrEmpty(s.Name) && s.Name.ToLower().Contains(query)) ||
+                (!string.IsNullOrEmpty(s.Description) && s.Description.ToLower().Contains(query))
+            ).ToList();
+
+            FilteredServices.Clear();
+            foreach (var service in filtered)
+                FilteredServices.Add(service);
         }
 
         private void LoadServices()
@@ -47,8 +63,12 @@ namespace VetClinic.ViewModels
             Application.Current.Dispatcher.Invoke(() =>
             {
                 Services.Clear();
+                FilteredServices.Clear();
                 foreach (var s in list)
+                {
                     Services.Add(s);
+                    FilteredServices.Add(s);
+                }
             });
         }
 
@@ -62,6 +82,7 @@ namespace VetClinic.ViewModels
 
             existing.Deleted = DateTime.Now;
             db.SaveChanges();
+
             LoadServices();
         }
 

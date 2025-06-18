@@ -61,6 +61,13 @@
                     </Style>
                 </Button.Style>
             </Button>
+
+            <Grid Margin="0,10,0,0" VerticalAlignment="Stretch">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="460" />
+                </Grid.RowDefinitions>
+            </Grid>
+            
             <Button Content="{Binding Source={StaticResource Strings}, Path=[Logout]}"
                 HorizontalAlignment="Center" VerticalAlignment="Bottom"
                 Margin="10" Command="{Binding LogoutCommand}" />

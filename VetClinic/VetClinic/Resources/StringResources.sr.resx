@@ -321,4 +321,13 @@
   <data name="Cancel" xml:space="preserve">
     <value>Otkaži</value>
   </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>Promijeni lozinku</value>
+  </data>
+  <data name="OldPassword" xml:space="preserve">
+    <value>Stara lozinka</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>Nova lozinka</value>
+  </data>
 </root>

@@ -34,11 +34,9 @@ namespace VetClinic.ViewModels
             set { email = value; OnPropertyChanged(); }
         }
 
-        public string Password
-        {
-            get => password;
-            set { password = value; OnPropertyChanged(); }
-        }
+        public string OldPassword { get; set; }
+        public string NewPassword { get; set; }
+
 
         public string SelectedTheme
         {
@@ -72,7 +70,7 @@ namespace VetClinic.ViewModels
             SaveCommand = new RelayCommand(_ => SaveChanges(SelectedLanguage));
         }
 
-        public void SaveChanges(string selectedCultureCode)
+        public void SaveChanges(string selectedCultureCode, string? oldPasswordInput = null, string? newPasswordInput = null)
         {
             using var db = new VetClinicContext();
             var user = db.Users.FirstOrDefault(u => u.Id == LoggedInUser.Id);
@@ -81,8 +79,20 @@ namespace VetClinic.ViewModels
             {
                 user.Name = Name;
                 user.Email = Email;
-                if (!string.IsNullOrWhiteSpace(Password))
-                    user.Password = Password;
+
+                // Password logic moved here
+                if (!string.IsNullOrWhiteSpace(oldPasswordInput) && !string.IsNullOrWhiteSpace(newPasswordInput))
+                {
+                    if (user.Password == oldPasswordInput)
+                    {
+                        user.Password = newPasswordInput;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Incorrect current password.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+                }
 
                 var pref = db.Userpreferences.FirstOrDefault(p => p.UserId == user.Id);
                 if (pref == null)

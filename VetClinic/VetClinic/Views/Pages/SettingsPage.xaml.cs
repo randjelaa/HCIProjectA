@@ -16,12 +16,6 @@ namespace VetClinic.Views.Pages
             DataContext = new SettingsViewModel(loggedInUser);
         }
 
-        private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
-        {
-            if (DataContext is SettingsViewModel vm)
-                vm.Password = ((PasswordBox)sender).Password;
-        }
-
         private string _selectedCultureCode;
 
         private void LanguageMenuItem_Click(object sender, RoutedEventArgs e)
@@ -34,10 +28,25 @@ namespace VetClinic.Views.Pages
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            if (DataContext is SettingsViewModel vm)
-            {
-                vm.SaveChanges(_selectedCultureCode);
-            }
+            string oldPass = OldPasswordBox.Password;
+            string newPass = NewPasswordBox.Password;
+            string selectedCulture = ((SettingsViewModel)DataContext).SelectedLanguage;
+
+            ((SettingsViewModel)DataContext).SaveChanges(
+                selectedCultureCode: selectedCulture,
+                oldPasswordInput: PasswordChangePanel.Visibility == Visibility.Visible ? oldPass : null,
+                newPasswordInput: PasswordChangePanel.Visibility == Visibility.Visible ? newPass : null
+            );
         }
+
+
+        private void ChangePasswordButton_Click(object sender, RoutedEventArgs e)
+        {
+            PasswordChangePanel.Visibility =
+                PasswordChangePanel.Visibility == Visibility.Visible
+                    ? Visibility.Collapsed
+                    : Visibility.Visible;
+        }
+
     }
 }

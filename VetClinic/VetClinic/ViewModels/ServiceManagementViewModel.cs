@@ -93,6 +93,15 @@ namespace VetClinic.ViewModels
         {
             if (service == null) return;
 
+            var confirmDialog = new ConfirmDeleteWindow
+            {
+                Owner = Application.Current.MainWindow
+            };
+
+            bool? result = confirmDialog.ShowDialog();
+            if (result != true || !confirmDialog.Confirmed)
+                return;
+
             using var db = new VetClinicContext();
             var existing = db.Services.Find(service.Id);
             if (existing == null || existing.Deleted != null) return;

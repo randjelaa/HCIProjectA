@@ -306,4 +306,19 @@
   <data name="Clear" xml:space="preserve">
     <value>Obriši</value>
   </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Potvrda</value>
+  </data>
+  <data name="Sure" xml:space="preserve">
+    <value>Jeste li sigurni da želite da obrišete?</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Da</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>Ne</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Otkaži</value>
+  </data>
 </root>

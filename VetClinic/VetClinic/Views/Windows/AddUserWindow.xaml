@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:VetClinic.Views.Windows"
-        Title="{Binding Source={StaticResource Strings}, Path=[User]}" Height="350" Width="400"
+        Title="{Binding Source={StaticResource Strings}, Path=[User]}" Height="400" Width="400"
         WindowStartupLocation="CenterOwner" ResizeMode="NoResize"
         Background="{DynamicResource MaterialDesignPaper}"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -46,10 +46,18 @@
                   DisplayMemberPath="Name"
                   materialDesign:HintAssist.Hint="{Binding Source={StaticResource Strings}, Path=[Role]}" />
 
-        <!-- Save Button -->
-        <Button Grid.Row="4" Content="{Binding Source={StaticResource Strings}, Path=[Save]}" Margin="0,15,0,0"
-                Style="{StaticResource MaterialDesignRaisedButton}"
-                Click="Save_Click"
-                HorizontalAlignment="Right" Width="100"/>
+        <!-- Save + Cancel Buttons -->
+        <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,15,0,0">
+            <Button Content="{Binding Source={StaticResource Strings}, Path=[Save]}"
+                    Style="{StaticResource MaterialDesignRaisedButton}"
+                    Click="Save_Click"
+                    Width="80"/>
+            <Button Content="{Binding Source={StaticResource Strings}, Path=[Cancel]}"
+            Style="{StaticResource MaterialDesignFlatButton}"
+            Click="Cancel_Click"
+            Margin="5,0,10,0"
+            Width="80"/>
+        </StackPanel>
+
     </Grid>
 </Window>

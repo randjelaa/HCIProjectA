@@ -1,23 +1,23 @@
 ﻿<Window x:Class="VetClinic.Views.Windows.ConfirmDeleteWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Confirm Deletion"
-        Height="180" Width="400"
+        Title="{Binding Source={StaticResource Strings}, Path=[Confirm]}"
+        Height="200" Width="400"
         WindowStartupLocation="CenterOwner"
         ResizeMode="NoResize"
         WindowStyle="SingleBorderWindow"
         ShowInTaskbar="False">
 
     <StackPanel Margin="20">
-        <TextBlock Text="Are you sure you want to delete this item?" 
+        <TextBlock Text="{Binding Source={StaticResource Strings}, Path=[Sure]}" 
                    FontSize="16" TextWrapping="Wrap"
                    Margin="0,0,0,20"
                    TextAlignment="Center"/>
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
-            <Button Content="Yes" Width="80" Margin="10,0"
+            <Button Content="{Binding Source={StaticResource Strings}, Path=[Yes]}" Width="80" Margin="10,0"
                     Click="Yes_Click"/>
-            <Button Content="No" Width="80" Margin="10,0"
+            <Button Content="{Binding Source={StaticResource Strings}, Path=[No]}" Width="80" Margin="10,0"
                     Click="No_Click"/>
         </StackPanel>
     </StackPanel>

@@ -39,13 +39,14 @@
         </StackPanel>
 
         <!-- Table -->
-        <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto">
             <DataGrid ItemsSource="{Binding FilteredServices}"
                   AutoGenerateColumns="False"
                   CanUserAddRows="False"
                   IsReadOnly="True"
                   HeadersVisibility="Column"
-                  AlternatingRowBackground="#FFEFEFEF">
+                  AlternatingRowBackground="#FFEFEFEF"
+                  ScrollViewer.VerticalScrollBarVisibility="Auto"
+                  Grid.Row="2">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Binding="{Binding Id}" IsReadOnly="True"/>
                     <DataGridTextColumn Header="{Binding Source={StaticResource Strings}, Path=[Name]}" Binding="{Binding Name}" />
@@ -71,7 +72,6 @@
                     </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
-        </ScrollViewer>
 
         <!-- Buttons -->
         <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">

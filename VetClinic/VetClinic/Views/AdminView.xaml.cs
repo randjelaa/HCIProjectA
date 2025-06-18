@@ -22,6 +22,7 @@ namespace VetClinic.Views
             var vm = new AdminViewModel(loggedInUser);
             DataContext = vm;
             vm.FrameRef = MainFrame;
+            vm.CurrentPage = "Users";
             MainFrame.Navigate(new Pages.UserManagementPage());
         }
     }

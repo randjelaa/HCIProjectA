@@ -31,6 +31,11 @@ namespace VetClinic.Views
             if (DataContext is LoginViewModel vm)
                 vm.Password = ((PasswordBox)sender).Password;
         }
-    }
 
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+    }
 }

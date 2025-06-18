@@ -26,6 +26,7 @@ namespace VetClinic.Views
             var vm = new VetViewModel(loggedInUser);
             DataContext = vm;
             vm.FrameRef = MainFrame;
+            vm.CurrentPage = "Active";
             MainFrame.Navigate(new Pages.ActiveAppointmentsPage(loggedInUser));
         }
     }

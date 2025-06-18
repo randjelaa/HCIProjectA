@@ -82,6 +82,15 @@ public class UserManagementViewModel : BaseViewModel
     {
         if (user == null) return;
 
+        var confirmDialog = new ConfirmDeleteWindow
+        {
+            Owner = Application.Current.MainWindow
+        };
+
+        bool? result = confirmDialog.ShowDialog();
+        if (result != true || !confirmDialog.Confirmed)
+            return;
+
         using var db = new VetClinicContext();
         var toDelete = db.Users.Find(user.Id);
         if (toDelete == null) return;

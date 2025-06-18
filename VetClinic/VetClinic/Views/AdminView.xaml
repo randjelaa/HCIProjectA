@@ -3,20 +3,68 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:VetClinic.Views"
         Title="{Binding Source={StaticResource Strings}, Path=[AdminView]}" 
-        Height="500" Width="900">
+        WindowState="Maximized"
+        WindowStyle="SingleBorderWindow" 
+        ResizeMode="CanResize">
     <DockPanel>
         <!-- Navigation Menu -->
         <StackPanel DockPanel.Dock="Left" Width="200" Background="#EEE">
             <TextBlock Text="{Binding Source={StaticResource Strings}, Path=[Menu]}" 
                        FontSize="18" FontWeight="Bold" Margin="10"/>
-            <Button Content="{Binding Source={StaticResource Strings}, Path=[ManageUsers]}" 
-                    Margin="10" Command="{Binding NavigateUsersCommand}"/>
+            <Button Content="{Binding Source={StaticResource Strings}, Path=[ManageUsers]}"
+                    Margin="10"
+                    Command="{Binding NavigateUsersCommand}">
+                <Button.Style>
+                    <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding CurrentPage}" Value="Users">
+                                <Setter Property="Background" Value="#FFCCE5FF"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+
             <Button Content="{Binding Source={StaticResource Strings}, Path=[ManageServices]}"
-                    Margin="10" Command="{Binding NavigateServicesCommand}"/>
+                    Margin="10" Command="{Binding NavigateServicesCommand}">
+                <Button.Style>
+                    <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding CurrentPage}" Value="Services">
+                                <Setter Property="Background" Value="#FFCCE5FF"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
             <Button Content="{Binding Source={StaticResource Strings}, Path=[Reports]}" 
-                    Margin="10" Command="{Binding NavigateReportsCommand}"/>
+                    Margin="10" Command="{Binding NavigateReportsCommand}">
+                <Button.Style>
+                    <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding CurrentPage}" Value="Reports">
+                                <Setter Property="Background" Value="#FFCCE5FF"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
             <Button Content="{Binding Source={StaticResource Strings}, Path=[Settings]}" 
-                    Margin="10" Command="{Binding NavigateSettingsCommand}"/>
+                    Margin="10" Command="{Binding NavigateSettingsCommand}">
+                <Button.Style>
+                    <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding CurrentPage}" Value="Settings">
+                                <Setter Property="Background" Value="#FFCCE5FF"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
             <Button Content="{Binding Source={StaticResource Strings}, Path=[Logout]}"
                 HorizontalAlignment="Center" VerticalAlignment="Bottom"
                 Margin="10" Command="{Binding LogoutCommand}" />

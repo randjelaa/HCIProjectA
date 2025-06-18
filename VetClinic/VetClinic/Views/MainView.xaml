@@ -6,7 +6,9 @@
         xmlns:local="clr-namespace:VetClinic.Views"
         mc:Ignorable="d"
         Title="{Binding Source={StaticResource Strings}, Path=[MainView]}"
-        Height="450" Width="800">
+        WindowState="Maximized"
+        WindowStyle="SingleBorderWindow" 
+        ResizeMode="CanResize">
     <Grid>
 
         <Button Content="{Binding Source={StaticResource Strings}, Path=[Login]}"

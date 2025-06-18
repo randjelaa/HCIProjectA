@@ -10,13 +10,57 @@
             <TextBlock Text="{Binding Source={StaticResource Strings}, Path=[Menu]}" 
                        FontSize="18" FontWeight="Bold" Margin="10"/>
             <Button Content="{Binding Source={StaticResource Strings}, Path=[ActiveAppointments]}" 
-                    Margin="10" Command="{Binding NavigateActiveAppointmentsCommand}"/>
+                    Margin="10" Command="{Binding NavigateActiveAppointmentsCommand}">
+                <Button.Style>
+                    <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding CurrentPage}" Value="Active">
+                                <Setter Property="Background" Value="#FFCCE5FF"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
             <Button Content="{Binding Source={StaticResource Strings}, Path=[ClosedAppointments]}"
-                    Margin="10" Command="{Binding NavigateClosedAppointmentsCommand}"/>
+                    Margin="10" Command="{Binding NavigateClosedAppointmentsCommand}">
+                <Button.Style>
+                    <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding CurrentPage}" Value="Closed">
+                                <Setter Property="Background" Value="#FFCCE5FF"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
             <Button Content="{Binding Source={StaticResource Strings}, Path=[Pets]}" 
-                    Margin="10" Command="{Binding NavigatePetsCommand}"/>
+                    Margin="10" Command="{Binding NavigatePetsCommand}">
+                <Button.Style>
+                    <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding CurrentPage}" Value="Pets">
+                                <Setter Property="Background" Value="#FFCCE5FF"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
             <Button Content="{Binding Source={StaticResource Strings}, Path=[Settings]}" 
-                    Margin="10" Command="{Binding NavigateSettingsCommand}"/>
+                    Margin="10" Command="{Binding NavigateSettingsCommand}">
+                <Button.Style>
+                    <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding CurrentPage}" Value="Settings">
+                                <Setter Property="Background" Value="#FFCCE5FF"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
             <Button Content="{Binding Source={StaticResource Strings}, Path=[Logout]}"
                 HorizontalAlignment="Center" VerticalAlignment="Bottom"
                 Margin="10" Command="{Binding LogoutCommand}" />

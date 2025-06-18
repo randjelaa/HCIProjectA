@@ -21,14 +21,37 @@ namespace VetClinic.ViewModels
 
         public Frame FrameRef { get; set; }
 
+        private string _currentPage;
+        public string CurrentPage
+        {
+            get => _currentPage;
+            set => SetProperty(ref _currentPage, value);
+        }
+
         public VetViewModel(User user)
         {
             LoggedInUser = user;
 
-            NavigateActiveAppointmentsCommand = new RelayCommand(_ => Navigate(new ActiveAppointmentsPage(LoggedInUser)));
-            NavigateClosedAppointmentsCommand = new RelayCommand(_ => Navigate(new ClosedAppointmentsPage(LoggedInUser)));
-            NavigatePetsCommand = new RelayCommand(_ => Navigate(new PetsPage()));
-            NavigateSettingsCommand = new RelayCommand(_ => Navigate(new SettingsPage(LoggedInUser)));
+            NavigateActiveAppointmentsCommand = new RelayCommand(_ =>
+            {
+                CurrentPage = "Active";
+                Navigate(new ActiveAppointmentsPage(LoggedInUser));
+            });
+            NavigateClosedAppointmentsCommand = new RelayCommand(_ =>
+            {
+                CurrentPage = "Closed";
+                Navigate(new ClosedAppointmentsPage(LoggedInUser));
+            });
+            NavigatePetsCommand = new RelayCommand(_ =>
+            {
+                CurrentPage = "Pets";
+                Navigate(new PetsPage());
+            });
+            NavigateSettingsCommand = new RelayCommand(_ =>
+            {
+                CurrentPage = "Settings";
+                Navigate(new SettingsPage(LoggedInUser));
+            });
 
             LogoutCommand = new RelayCommand(ExecuteLogout);
         }

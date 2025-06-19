@@ -8,7 +8,7 @@ This is a desktop WPF application designed for managing operations in a veterina
 
 ![Main Screenshot](./Screenshots/main.PNG)
 
-This is the sratup window, you can change the language of this window in the upper right corner. The application requires login credentials. Users are assigned one of the following roles:
+This is the startup window. You can change the language using the selector in the upper-right corner. The application requires login credentials. Users are assigned one of the following roles:
 
 * **Administrator**
 * **Veterinarian**
@@ -91,7 +91,7 @@ You can see further user details by pressing the button:
 
 ### 📅 Appointment Management
 
-View and manage active appointments - appointments without a record:
+View and manage active appointments — appointments that have not yet been completed (i.e., without a medical record):
 * Upcoming appointments
 * Missed appointments (no medical record added)
 
@@ -100,21 +100,23 @@ View and manage active appointments - appointments without a record:
 Veterianrian can:
 * View appointment where he can also add a record (Diagnosis, Treatment, Medications, Notes)
 
-![Main Screenshot](./Screenshots/active_appointment_view.PNG)
+![Main Screenshot](./Screenshots/active_appointments_view.PNG)
 
 * Cancel appointments if necessary - soft delete them (mark as inactive)
 
-![Main Screenshot](./Screenshots/active_appointment_delete.PNG)
+![Main Screenshot](./Screenshots/active_appointments_delete.PNG)
 
 Appointments are filtered by date in ascending order.
+
+
 
 
 View all closed appointments - appointments with a record.
 
 ![Main Screenshot](./Screenshots/closed_appointments.PNG)
 
-Veterianrian can:
-* Filer closed appointments by date:
+Veterianarian can:
+* Filter closed appointments by date:
 
 ![Main Screenshot](./Screenshots/closed_appointments_filter.PNG)
 
@@ -144,7 +146,7 @@ He can also search the pets by their name or the owner's name:
 
 Each user can:
 
-* Change the application language (e.g., English, Bosnian)
+* Change the application language (English, Serbian - Srpski)
 * Update personal information (name, email, password)
 
 Changes take effect after clicking **Save Changes**.
@@ -179,5 +181,6 @@ Each action of the user shows a message of succession, for example editing the p
 ## 📎 Notes
 
 * All deletions are *soft deletes* to preserve data integrity. That means that the data still exists in the database, it is just not shown in the application.
-* Application supports future expansion (e.g., reception roles, pet grooming modules).
+* Application supports future expansion (e.g., reception roles, pet grooming modules) and also adding new localizations.
+* All images referenced here should be located in the `Screenshots/` folder at the root of the repository.
 

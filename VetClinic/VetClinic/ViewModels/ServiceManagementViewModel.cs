@@ -1,15 +1,16 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using MvvmHelpers;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MvvmHelpers;
-using System.Collections.ObjectModel;
+using System.Windows;
 using System.Windows.Input;
 using VetClinic.Models;
+using VetClinic.Resources;
 using VetClinic.Views.Windows;
-using Microsoft.EntityFrameworkCore;
-using System.Windows;
 
 namespace VetClinic.ViewModels
 {
@@ -112,6 +113,13 @@ namespace VetClinic.ViewModels
 
             existing.Deleted = DateTime.Now;
             db.SaveChanges();
+
+            MessageBox.Show(
+                StringResources.DeleteSuccessMessage,
+                StringResources.SuccessTitle,
+                MessageBoxButton.OK,
+                MessageBoxImage.Information
+            );
 
             LoadServices();
         }

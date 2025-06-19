@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Input;
 using VetClinic.Models;
+using VetClinic.Resources;
 using VetClinic.Views.Windows;
 
 public class UserManagementViewModel : BaseViewModel
@@ -78,6 +79,13 @@ public class UserManagementViewModel : BaseViewModel
             db.Users.Add(user);
             db.SaveChanges();
 
+            MessageBox.Show(
+                StringResources.SaveSuccessMessage,
+                StringResources.SuccessTitle,
+                MessageBoxButton.OK,
+                MessageBoxImage.Information
+            );
+
             LoadUsers();
         }
     }
@@ -101,6 +109,13 @@ public class UserManagementViewModel : BaseViewModel
 
         toDelete.Deleted = DateTime.Now;
         db.SaveChanges();
+
+        MessageBox.Show(
+                StringResources.DeleteSuccessMessage,
+                StringResources.SuccessTitle,
+                MessageBoxButton.OK,
+                MessageBoxImage.Information
+            );
 
         Users.Remove(user);
         FilteredUsers.Remove(user);

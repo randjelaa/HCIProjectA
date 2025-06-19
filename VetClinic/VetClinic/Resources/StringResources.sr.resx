@@ -333,4 +333,16 @@
   <data name="NoData" xml:space="preserve">
     <value>Izgleda da ovdje trenutno nema ničega</value>
   </data>
+  <data name="ConfirmLogout" xml:space="preserve">
+    <value>Jeste li sigurni da želite da se odjavite?</value>
+  </data>
+  <data name="DeleteSuccessMessage" xml:space="preserve">
+    <value>Uspješno obrisano!</value>
+  </data>
+  <data name="SuccessTitle" xml:space="preserve">
+    <value>Uspješno</value>
+  </data>
+  <data name="SaveSuccessMessage" xml:space="preserve">
+    <value>Uspješno sačuvano!</value>
+  </data>
 </root>

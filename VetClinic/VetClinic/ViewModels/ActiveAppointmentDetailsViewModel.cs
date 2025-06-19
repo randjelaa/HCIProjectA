@@ -1,7 +1,9 @@
-﻿using MvvmHelpers;
+﻿using Microsoft.VisualBasic;
+using MvvmHelpers;
 using System.Windows;
 using System.Windows.Input;
 using VetClinic.Models;
+using VetClinic.Resources;
 
 namespace VetClinic.ViewModels
 {
@@ -56,6 +58,14 @@ namespace VetClinic.ViewModels
 
             db.Medicalrecords.Add(record);
             db.SaveChanges();
+
+            MessageBox.Show(
+                StringResources.SaveSuccessMessage,  
+                StringResources.SuccessTitle,         
+                MessageBoxButton.OK,
+                MessageBoxImage.Information
+            );
+
 
             IsAddingRecord = false; // hide form after saving
         }

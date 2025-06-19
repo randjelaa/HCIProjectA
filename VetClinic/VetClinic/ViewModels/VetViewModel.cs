@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using VetClinic.Models;
+using VetClinic.Resources;
 using VetClinic.Views;
 using VetClinic.Views.Pages;
 
@@ -69,6 +70,16 @@ namespace VetClinic.ViewModels
 
         private void ExecuteLogout(object obj)
         {
+            var result = MessageBox.Show(
+                StringResources.ConfirmLogout, 
+                StringResources.Logout,   
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Question
+            );
+
+            if (result != MessageBoxResult.Yes)
+                return;
+
             // Perform any necessary cleanup
             var old = App.Current.MainWindow;
 

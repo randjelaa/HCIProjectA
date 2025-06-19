@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using VetClinic.Models;
+using VetClinic.Resources;
 
 namespace VetClinic.Views.Windows
 {
@@ -17,6 +18,13 @@ namespace VetClinic.Views.Windows
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
+            MessageBox.Show(
+                StringResources.SaveSuccessMessage,
+                StringResources.SuccessTitle,
+                MessageBoxButton.OK,
+                MessageBoxImage.Information
+            );
+
             DialogResult = true;
         }
 

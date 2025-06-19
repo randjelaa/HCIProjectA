@@ -1,10 +1,12 @@
-﻿using MvvmHelpers;
+﻿using Microsoft.VisualBasic;
+using MvvmHelpers;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using VetClinic.Models;
 using VetClinic.Views;
 using VetClinic.Views.Pages;
+using VetClinic.Resources;
 
 namespace VetClinic.ViewModels
 {
@@ -73,6 +75,16 @@ namespace VetClinic.ViewModels
 
         private void ExecuteLogout(object obj)
         {
+            var result = MessageBox.Show(
+                StringResources.ConfirmLogout, // iz Strings.resx
+                StringResources.Logout,   // iz Strings.resx
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Question
+            );
+
+            if (result != MessageBoxResult.Yes)
+                return;
+
             // Perform any necessary cleanup
             var old = App.Current.MainWindow;
 

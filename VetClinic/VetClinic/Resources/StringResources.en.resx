@@ -333,4 +333,16 @@
   <data name="NoData" xml:space="preserve">
     <value>Looks like there’s nothing here right now</value>
   </data>
+  <data name="ConfirmLogout" xml:space="preserve">
+    <value>Are you sure you want to log out?</value>
+  </data>
+  <data name="DeleteSuccessMessage" xml:space="preserve">
+    <value>Successfully deleted!</value>
+  </data>
+  <data name="SuccessTitle" xml:space="preserve">
+    <value>Success</value>
+  </data>
+  <data name="SaveSuccessMessage" xml:space="preserve">
+    <value>Successfully saved!</value>
+  </data>
 </root>

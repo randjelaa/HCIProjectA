@@ -4,9 +4,10 @@ using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Input;
 using VetClinic.Models;
+using VetClinic.Resources;
+using VetClinic.Util;
 using VetClinic.Views;
 using VetClinic.Views.Pages;
-using VetClinic.Util;
 
 namespace VetClinic.ViewModels
 {
@@ -105,6 +106,13 @@ namespace VetClinic.ViewModels
                     pref.Language = selectedCultureCode;
 
                 db.SaveChanges();
+
+                MessageBox.Show(
+                StringResources.SaveSuccessMessage,
+                StringResources.SuccessTitle,
+                MessageBoxButton.OK,
+                MessageBoxImage.Information
+            );
             }
 
             if (!string.IsNullOrWhiteSpace(selectedCultureCode))

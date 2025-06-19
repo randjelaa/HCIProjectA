@@ -5,6 +5,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using VetClinic.Models;
+using VetClinic.Resources;
 using VetClinic.Views.Windows;
 
 namespace VetClinic.ViewModels
@@ -132,6 +133,13 @@ namespace VetClinic.ViewModels
 
             toDelete.Deleted = DateTime.Now;
             db.SaveChanges();
+
+            MessageBox.Show(
+                StringResources.DeleteSuccessMessage,
+                StringResources.SuccessTitle,
+                MessageBoxButton.OK,
+                MessageBoxImage.Information
+            );
 
             LoadAppointments(); // refresh the list after deletion
         }

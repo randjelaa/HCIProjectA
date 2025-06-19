@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using VetClinic.Models;
+using VetClinic.Resources;
 using VetClinic.Views.Windows;
 
 
@@ -65,6 +66,13 @@ namespace VetClinic.ViewModels
             }
 
             db.SaveChanges();
+
+            MessageBox.Show(
+                StringResources.SaveSuccessMessage,
+                StringResources.SuccessTitle,
+                MessageBoxButton.OK,
+                MessageBoxImage.Information
+            );
 
             // Close the dialog
             foreach (Window window in Application.Current.Windows)

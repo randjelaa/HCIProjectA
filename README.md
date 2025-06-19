@@ -15,7 +15,7 @@ This is the startup window. You can change the language using the selector in th
 
 Upon login, users are redirected to their appropriate dashboard based on their role.
 
-![Main Login Screenshot](./Screenshots/main_login.PNG)
+![Login Screenshot](./Screenshots/main_login.PNG)
 
 ---
 
@@ -25,65 +25,61 @@ Upon login, users are redirected to their appropriate dashboard based on their r
 
 ![User Management Screenshot](./Screenshots/manage_users.PNG)
 
-Manage clinic staff such as veterinarians.
-You can:
+Manage clinic staff such as veterinarians. You can:
 
-* Add new users
+* Add new users:
 
-![Main Screenshot](./Screenshots/manage_users_add.PNG)
-  
-* Search users
+  ![Add User Screenshot](./Screenshots/manage_users_add.PNG)
 
-![Main Screenshot](./Screenshots/manage_users_search.PNG)
-  
-* Soft-delete users (mark as inactive)
+* Search users:
 
-![User Management Screenshot](./Screenshots/manage_users_delete.PNG)
+  ![Search User Screenshot](./Screenshots/manage_users_search.PNG)
+
+* Soft-delete users (mark as inactive):
+
+  ![Delete User Screenshot](./Screenshots/manage_users_delete.PNG)
 
 ---
 
 ### 💼 Service Management
 
-![Main Screenshot](./Screenshots/manage_services.PNG)
+![Service Management Screenshot](./Screenshots/manage_services.PNG)
 
-Maintain the list of services offered at the clinic.
-You can:
+Maintain the list of services offered at the clinic. You can:
 
-* Add services
+* Add services:
 
-![Main Screenshot](./Screenshots/manage_services_add.PNG)
+  ![Add Service Screenshot](./Screenshots/manage_services_add.PNG)
 
-* Edit services
+* Edit services:
 
-![Main Screenshot](./Screenshots/manage_services_edit.PNG)
+  ![Edit Service Screenshot](./Screenshots/manage_services_edit.PNG)
 
-* Soft delete services (mark as inactive)
+* Soft-delete services (mark as inactive):
 
-![Main Screenshot](./Screenshots/manage_services_delete.PNG)
+  ![Delete Service Screenshot](./Screenshots/manage_services_delete.PNG)
 
-* Search services using the search bar
+* Search services using the search bar:
 
-![Service Management Screenshot](./Screenshots/manage_services_search.PNG)
+  ![Search Service Screenshot](./Screenshots/manage_services_search.PNG)
 
 ---
 
 ### 📊 Reports and Financial Overview
 
-![Main Screenshot](./Screenshots/reports_1.PNG)
+![Reports Screenshot 1](./Screenshots/reports_1.PNG)  
+![Reports Screenshot 2](./Screenshots/reports_2.PNG)
 
-![Main Screenshot](./Screenshots/reports_2.PNG)
-
-Get insights into clinic performance.
-Features include:
+Gain insight into clinic performance. Features include:
 
 * Table of completed payments
 * List of unpaid services with user details
 * Line chart of income over time
 * Pie chart of most popular services
 
-You can see further user details by pressing the button:
+To view additional details about a user, click the **User Details** button:
 
-![Main Screenshot](./Screenshots/reports_user_details.PNG)
+![User Details Screenshot](./Screenshots/reports_user_details.PNG)
 
 ---
 
@@ -91,52 +87,61 @@ You can see further user details by pressing the button:
 
 ### 📅 Appointment Management
 
-View and manage active appointments — appointments that have not yet been completed (i.e., without a medical record):
+Veterinarians can view and manage appointments that do not yet have medical records:
+
 * Upcoming appointments
-* Missed appointments (no medical record added)
+* Missed appointments (i.e., appointments in the past without a record)
 
-![Main Screenshot](./Screenshots/active_appointments.PNG)
+![Active Appointments Screenshot](./Screenshots/active_appointments.PNG)
 
-Veterianrian can:
-* View appointment where he can also add a record (Diagnosis, Treatment, Medications, Notes)
+Veterinarians can:
 
-![Main Screenshot](./Screenshots/active_appointments_view.PNG)
+* View appointment details and add a medical record (Diagnosis, Treatment, Medications, Notes):
 
-* Cancel appointments if necessary - soft delete them (mark as inactive)
+  ![View Appointment Screenshot](./Screenshots/active_appointments_view.PNG)
 
-![Main Screenshot](./Screenshots/active_appointments_delete.PNG)
+* Cancel appointments if necessary (soft delete them):
 
-Appointments are filtered by date in ascending order.
+  ![Delete Appointment Screenshot](./Screenshots/active_appointments_delete.PNG)
 
-
-
-
-View all closed appointments - appointments with a record.
-
-![Main Screenshot](./Screenshots/closed_appointments.PNG)
-
-Veterianarian can:
-* Filter closed appointments by date:
-
-![Main Screenshot](./Screenshots/closed_appointments_filter.PNG)
-
-* View details of the appointment:
-
-![Main Screenshot](./Screenshots/closed_appointments_view.PNG)
+Appointments are filtered by ascending date.
 
 ---
 
-### Pets
+### ✅ Closed Appointments
 
-![Main Screenshot](./Screenshots/pets.PNG)
+View all past appointments that already have an associated medical record.
 
-Veterinarian can see all the pets and their owners, and also by clicking on a button he can see pet's medical records and filter them by dates from and to:
+![Closed Appointments Screenshot](./Screenshots/closed_appointments.PNG)
 
-![Main Screenshot](./Screenshots/pets_medical_records.PNG)
+Veterinarians can:
 
-He can also search the pets by their name or the owner's name:
+* Filter closed appointments by date:
 
-![Main Screenshot](./Screenshots/pets_search.PNG)
+  ![Closed Appointments Filter Screenshot](./Screenshots/closed_appointments_filter.PNG)
+
+* View details of any closed appointment:
+
+  ![Closed Appointments View Screenshot](./Screenshots/closed_appointments_view.PNG)
+
+---
+
+### 🐕 Pets Overview
+
+![Pets Screenshot](./Screenshots/pets.PNG)
+
+Veterinarians can:
+
+* See all pets along with their owners
+* View medical records for a selected pet and filter them by date:
+
+  ![Pet Medical Records Screenshot](./Screenshots/pets_medical_records.PNG)
+
+* Search for pets by pet name or owner's name:
+
+  ![Search Pets Screenshot](./Screenshots/pets_search.PNG)
+
+---
 
 ## ⚙️ Shared Settings (All Users)
 
@@ -146,7 +151,7 @@ He can also search the pets by their name or the owner's name:
 
 Each user can:
 
-* Change the application language (English, Serbian - Srpski)
+* Change the application language (English, Serbian – Srpski)
 * Update personal information (name, email, password)
 
 Changes take effect after clicking **Save Changes**.
@@ -159,28 +164,32 @@ When logging out, a confirmation dialog appears to prevent accidental logout.
 
 ![Logout Confirmation Screenshot](./Screenshots/logout.PNG)
 
-## Success Confirmation
+---
 
-Each action of the user shows a message of succession, for example editing the profile:
+## ✅ Action Confirmation
 
-![Settings Screenshot](./Screenshots/settings_message.PNG)
+Each successful user action is followed by a confirmation message. For example, after updating profile information:
+
+![Settings Confirmation Screenshot](./Screenshots/settings_message.PNG)
 
 ---
 
-## 📝 Technologies Used
+## 🛠 Technologies Used
 
 * **WPF (.NET)**
 * **MVVM Architecture**
 * **Entity Framework Core**
 * **MySQL**
-* **LiveCharts for graphs**
+* **LiveCharts for Graphs**
 * **Material Design in XAML Toolkit**
 
 ---
 
 ## 📎 Notes
 
-* All deletions are *soft deletes* to preserve data integrity. That means that the data still exists in the database, it is just not shown in the application.
-* Application supports future expansion (e.g., reception roles, pet grooming modules) and also adding new localizations.
-* All images referenced here should be located in the `Screenshots/` folder at the root of the repository.
+* All deletions in the system are **soft deletes**, meaning data remains in the database but is hidden from the user interface.
+* The application is designed to support future expansion (e.g., reception roles, pet grooming modules) and adding new localizations.
 
+---
+
+> 📸 **Make sure all screenshots referenced in this document are placed inside the `Screenshots/` folder of the repository.**

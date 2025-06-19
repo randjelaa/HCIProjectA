@@ -79,7 +79,7 @@ namespace VetClinic.ViewModels
             var today = DateTime.Today;
 
             var upcoming = allAppointments
-                .Where(a => a.Date >= today && (SelectedDate == null || a.Date.Date == SelectedDate.Value.Date))
+                .Where(a => a.Date >= today && (SelectedDate == null || a.Date.Date == SelectedDate.Value.Date) && !a.Medicalrecords.Any())
                 .ToList();
 
             var missed = allAppointments

@@ -33,6 +33,8 @@ namespace VetClinic.ViewModels
         public ICommand ViewRecordsCommand { get; }
         public Pet SelectedPet { get; set; }
 
+        public bool HasPets => FilteredPets.Any();
+
         public PetsViewModel()
         {
             ViewRecordsCommand = new RelayCommand(ViewRecords);
@@ -60,6 +62,7 @@ namespace VetClinic.ViewModels
                     Pets.Add(pet);
                     FilteredPets.Add(pet);
                 }
+                OnPropertyChanged(nameof(HasPets));
             });
         }
 
@@ -70,6 +73,7 @@ namespace VetClinic.ViewModels
                 FilteredPets.Clear();
                 foreach (var pet in Pets)
                     FilteredPets.Add(pet);
+                OnPropertyChanged(nameof(HasPets));
                 return;
             }
 
@@ -84,6 +88,7 @@ namespace VetClinic.ViewModels
             FilteredPets.Clear();
             foreach (var pet in filtered)
                 FilteredPets.Add(pet);
+            OnPropertyChanged(nameof(HasPets));
         }
 
         private void ClearSearch()

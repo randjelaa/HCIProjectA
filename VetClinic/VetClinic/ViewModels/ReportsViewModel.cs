@@ -25,6 +25,9 @@ namespace VetClinic.ViewModels
 
         public ICommand ShowUserCommand { get; }
 
+        public bool HasPayments => Payments.Any();
+        public bool HasUnpaidServices => UnpaidServices.Any();
+
         public ReportsViewModel()
         {
             LoadData();
@@ -58,6 +61,7 @@ namespace VetClinic.ViewModels
                 Payments.Clear();
                 foreach (var p in payments)
                     Payments.Add(p);
+                OnPropertyChanged(nameof(HasPayments));
             });
 
             // Unpaid Services
@@ -72,6 +76,7 @@ namespace VetClinic.ViewModels
                 UnpaidServices.Clear();
                 foreach (var s in unpaid)
                     UnpaidServices.Add(s);
+                OnPropertyChanged(nameof(HasPayments));
             });
 
             // Chart: Income over time (group by day)

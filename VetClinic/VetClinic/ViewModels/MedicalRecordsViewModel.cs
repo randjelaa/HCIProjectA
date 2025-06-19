@@ -21,6 +21,9 @@ namespace VetClinic.ViewModels
 
         private readonly Pet pet;
 
+        public bool HasRecords => MedicalRecords.Any();
+
+
         public MedicalRecordsViewModel(Pet pet)
         {
             this.pet = pet;
@@ -60,6 +63,7 @@ namespace VetClinic.ViewModels
                 MedicalRecords.Clear();
                 foreach (var r in filtered.OrderBy(r => r.Appointment.Date))
                     MedicalRecords.Add(r);
+                OnPropertyChanged(nameof(HasRecords));
             });
         }
     }

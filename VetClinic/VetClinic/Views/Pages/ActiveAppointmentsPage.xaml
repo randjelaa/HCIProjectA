@@ -3,22 +3,25 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:core="clr-namespace:VetClinic"
       mc:Ignorable="d"
       Title="{Binding Source={StaticResource Strings}, Path=[ActiveAppointments]}">
+
+    <Page.Resources>
+        <core:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+        <core:BoolToVisibilityConverter x:Key="InverseBoolToVisibilityConverter" Inverse="True" />
+    </Page.Resources>
 
     <Grid Margin="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <!-- Upcoming title -->
-            <RowDefinition Height="*"/>
-            <!-- Upcoming DataGrid -->
             <RowDefinition Height="Auto"/>
-            <!-- Missed title -->
-            <RowDefinition Height="*"/>
-            <!-- Missed DataGrid -->
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <!-- Upcoming Appointments -->
+        <!-- Upcoming -->
         <TextBlock Grid.Row="0"
                    Text="{Binding Source={StaticResource Strings}, Path=[UpcomingAppointments]}"
                    FontSize="20" FontWeight="Bold" Margin="0,0,0,10"/>
@@ -27,7 +30,8 @@
                   ItemsSource="{Binding UpcomingAppointments}"
                   AutoGenerateColumns="False"
                   SelectedItem="{Binding SelectedAppointment}"
-                  ScrollViewer.VerticalScrollBarVisibility="Auto">
+                  ScrollViewer.VerticalScrollBarVisibility="Auto"
+                  Visibility="{Binding HasUpcomingAppointments, Converter={StaticResource BoolToVisibilityConverter}}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="{Binding Source={StaticResource Strings}, Path=[Date]}" Binding="{Binding Date}" Width="*"/>
                 <DataGridTextColumn Header="{Binding Source={StaticResource Strings}, Path=[Pet]}" Binding="{Binding Pet.Name}" Width="*"/>
@@ -36,38 +40,7 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                                <Button Content="{Binding Source={StaticResource Strings}, Path=[View]}" Margin="5,0" 
-                                        Command="{Binding DataContext.ViewAppointmentCommand, RelativeSource={RelativeSource AncestorType=Page}}"
-                                        CommandParameter="{Binding}" />
-                                <Button Content="{Binding Source={StaticResource Strings}, Path=[Delete]}" Margin="5,0" 
-                                        Command="{Binding DataContext.DeleteAppointmentCommand, RelativeSource={RelativeSource AncestorType=Page}}"
-                                        CommandParameter="{Binding}" />
-                            </StackPanel>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-            </DataGrid.Columns>
-        </DataGrid>
-
-        <!-- Missed Appointments -->
-        <TextBlock Grid.Row="2"
-                   Text="{Binding Source={StaticResource Strings}, Path=[MissedAppointments]}"
-                   FontSize="20" FontWeight="Bold" Margin="0,20,0,10"/>
-
-        <DataGrid Grid.Row="3"
-                  ItemsSource="{Binding MissedAppointments}"
-                  AutoGenerateColumns="False"
-                  SelectedItem="{Binding SelectedAppointment}"
-                  ScrollViewer.VerticalScrollBarVisibility="Auto">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="{Binding Source={StaticResource Strings}, Path=[Date]}" Binding="{Binding Date}" Width="*"/>
-                <DataGridTextColumn Header="{Binding Source={StaticResource Strings}, Path=[Pet]}" Binding="{Binding Pet.Name}" Width="*"/>
-                <DataGridTextColumn Header="{Binding Source={StaticResource Strings}, Path=[Service]}" Binding="{Binding Service.Name}" Width="*"/>
-                <DataGridTemplateColumn Header="{Binding Source={StaticResource Strings}, Path=[Actions]}" Width="2*">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                                <Button Content="{Binding Source={StaticResource Strings}, Path=[View]}" Margin="5,0" 
+                                <Button Content="{Binding Source={StaticResource Strings}, Path=[View]}" Margin="5,0"
                                         Command="{Binding DataContext.ViewAppointmentCommand, RelativeSource={RelativeSource AncestorType=Page}}"
                                         CommandParameter="{Binding}" />
                                 <Button Content="{Binding Source={StaticResource Strings}, Path=[Delete]}" Margin="5,0"
@@ -79,5 +52,45 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
+
+        <TextBlock Grid.Row="1" Text="{Binding Source={StaticResource Strings}, Path=[NoData]}"
+                   Visibility="{Binding HasUpcomingAppointments, Converter={StaticResource InverseBoolToVisibilityConverter}}"
+                   HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,10,0,5"/>
+
+        <!-- Missed -->
+        <TextBlock Grid.Row="2"
+                   Text="{Binding Source={StaticResource Strings}, Path=[MissedAppointments]}"
+                   FontSize="20" FontWeight="Bold" Margin="0,20,0,10"/>
+
+        <DataGrid Grid.Row="3"
+                  ItemsSource="{Binding MissedAppointments}"
+                  AutoGenerateColumns="False"
+                  SelectedItem="{Binding SelectedAppointment}"
+                  ScrollViewer.VerticalScrollBarVisibility="Auto"
+                  Visibility="{Binding HasMissedAppointments, Converter={StaticResource BoolToVisibilityConverter}}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="{Binding Source={StaticResource Strings}, Path=[Date]}" Binding="{Binding Date}" Width="*"/>
+                <DataGridTextColumn Header="{Binding Source={StaticResource Strings}, Path=[Pet]}" Binding="{Binding Pet.Name}" Width="*"/>
+                <DataGridTextColumn Header="{Binding Source={StaticResource Strings}, Path=[Service]}" Binding="{Binding Service.Name}" Width="*"/>
+                <DataGridTemplateColumn Header="{Binding Source={StaticResource Strings}, Path=[Actions]}" Width="2*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                                <Button Content="{Binding Source={StaticResource Strings}, Path=[View]}" Margin="5,0"
+                                        Command="{Binding DataContext.ViewAppointmentCommand, RelativeSource={RelativeSource AncestorType=Page}}"
+                                        CommandParameter="{Binding}" />
+                                <Button Content="{Binding Source={StaticResource Strings}, Path=[Delete]}" Margin="5,0"
+                                        Command="{Binding DataContext.DeleteAppointmentCommand, RelativeSource={RelativeSource AncestorType=Page}}"
+                                        CommandParameter="{Binding}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <TextBlock Grid.Row="3" Text="{Binding Source={StaticResource Strings}, Path=[NoData]}"
+                   Visibility="{Binding HasMissedAppointments, Converter={StaticResource InverseBoolToVisibilityConverter}}"
+                   HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10"/>
     </Grid>
 </Page>

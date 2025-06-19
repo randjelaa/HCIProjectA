@@ -26,6 +26,9 @@ public class UserManagementViewModel : BaseViewModel
     public ICommand AddUserCommand { get; }
     public ICommand DeleteUserCommand { get; }
 
+    public bool HasUsers => FilteredUsers.Any();
+
+
     public UserManagementViewModel()
     {
         SearchCommand = new RelayCommand(_ => ApplySearch());
@@ -47,6 +50,7 @@ public class UserManagementViewModel : BaseViewModel
         FilteredUsers.Clear();
         foreach (var user in filtered)
             FilteredUsers.Add(user);
+        OnPropertyChanged(nameof(HasUsers));
     }
 
     private void ClearSearch()
@@ -100,6 +104,7 @@ public class UserManagementViewModel : BaseViewModel
 
         Users.Remove(user);
         FilteredUsers.Remove(user);
+        OnPropertyChanged(nameof(HasUsers));
     }
 
     private void LoadUsers()
@@ -119,6 +124,7 @@ public class UserManagementViewModel : BaseViewModel
                 Users.Add(user);
                 FilteredUsers.Add(user);
             }
+            OnPropertyChanged(nameof(HasUsers));
         });
     }
 }

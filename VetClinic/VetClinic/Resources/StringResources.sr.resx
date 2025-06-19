@@ -330,4 +330,7 @@
   <data name="NewPassword" xml:space="preserve">
     <value>Nova lozinka</value>
   </data>
+  <data name="NoData" xml:space="preserve">
+    <value>Izgleda da ovdje trenutno nema ničega</value>
+  </data>
 </root>

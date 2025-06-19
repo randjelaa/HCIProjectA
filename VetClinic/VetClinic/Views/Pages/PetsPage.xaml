@@ -3,8 +3,14 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:core="clr-namespace:VetClinic"
       mc:Ignorable="d"
       Title="{Binding Source={StaticResource Strings}, Path=[Pets]}">
+
+    <Page.Resources>
+        <core:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+        <core:BoolToVisibilityConverter x:Key="InverseBoolToVisibilityConverter" Inverse="True"/>
+    </Page.Resources>
 
     <Grid Margin="20">
         <Grid.RowDefinitions>
@@ -28,27 +34,36 @@
         </StackPanel>
 
         <!-- Pet Table with scrolling -->
-        <DataGrid Grid.Row="2"
-                  ItemsSource="{Binding FilteredPets}" 
-                  AutoGenerateColumns="False"
-                  SelectedItem="{Binding SelectedPet}"
-                  ScrollViewer.VerticalScrollBarVisibility="Auto">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="{Binding Source={StaticResource Strings}, Path=[Name]}" Binding="{Binding Name}" Width="*"/>
-                <DataGridTextColumn Header="{Binding Source={StaticResource Strings}, Path=[Species]}" Binding="{Binding Species}" Width="*"/>
-                <DataGridTextColumn Header="{Binding Source={StaticResource Strings}, Path=[Breed]}" Binding="{Binding Breed}" Width="*"/>
-                <DataGridTextColumn Header="{Binding Source={StaticResource Strings}, Path=[Owner]}" Binding="{Binding Owner.Name}" Width="*"/>
-                <DataGridTextColumn Header="Email" Binding="{Binding Owner.Email}" Width="*"/>
-                <DataGridTemplateColumn Header="{Binding Source={StaticResource Strings}, Path=[Actions]}" Width="*">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button Content="{Binding Source={StaticResource Strings}, Path=[MedicalRecords]}"
-                                    Command="{Binding DataContext.ViewRecordsCommand, RelativeSource={RelativeSource AncestorType=Page}}"
-                                    CommandParameter="{Binding}" />
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-            </DataGrid.Columns>
-        </DataGrid>
+        <Grid Grid.Row="2">
+            <!-- DataGrid for pets -->
+            <DataGrid ItemsSource="{Binding FilteredPets}" 
+              AutoGenerateColumns="False"
+              SelectedItem="{Binding SelectedPet}"
+              ScrollViewer.VerticalScrollBarVisibility="Auto"
+              Visibility="{Binding HasPets, Converter={StaticResource BoolToVisibilityConverter}}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="{Binding Source={StaticResource Strings}, Path=[Name]}" Binding="{Binding Name}" Width="*"/>
+                    <DataGridTextColumn Header="{Binding Source={StaticResource Strings}, Path=[Species]}" Binding="{Binding Species}" Width="*"/>
+                    <DataGridTextColumn Header="{Binding Source={StaticResource Strings}, Path=[Breed]}" Binding="{Binding Breed}" Width="*"/>
+                    <DataGridTextColumn Header="{Binding Source={StaticResource Strings}, Path=[Owner]}" Binding="{Binding Owner.Name}" Width="*"/>
+                    <DataGridTextColumn Header="Email" Binding="{Binding Owner.Email}" Width="*"/>
+                    <DataGridTemplateColumn Header="{Binding Source={StaticResource Strings}, Path=[Actions]}" Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="{Binding Source={StaticResource Strings}, Path=[MedicalRecords]}"
+                                Command="{Binding DataContext.ViewRecordsCommand, RelativeSource={RelativeSource AncestorType=Page}}"
+                                CommandParameter="{Binding}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <!-- Empty state message -->
+            <TextBlock Text="{Binding Source={StaticResource Strings}, Path=[NoData]}"
+               HorizontalAlignment="Center" VerticalAlignment="Center"
+               FontSize="16" FontWeight="Bold" Foreground="Gray"
+               Visibility="{Binding HasPets, Converter={StaticResource InverseBoolToVisibilityConverter}}"/>
+        </Grid>
     </Grid>
 </Page>

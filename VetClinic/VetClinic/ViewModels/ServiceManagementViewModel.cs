@@ -35,6 +35,8 @@ namespace VetClinic.ViewModels
         public ICommand EditServiceCommand { get; }
         public ICommand DeleteServiceCommand { get; }
 
+        public bool HasServices => FilteredServices.Any();
+
         public ServicesManagementViewModel()
         {
             LoadServices();
@@ -62,6 +64,7 @@ namespace VetClinic.ViewModels
             FilteredServices.Clear();
             foreach (var service in filtered)
                 FilteredServices.Add(service);
+            OnPropertyChanged(nameof(HasServices));
         }
 
         private void ClearSearch()
@@ -86,6 +89,7 @@ namespace VetClinic.ViewModels
                     Services.Add(s);
                     FilteredServices.Add(s);
                 }
+                OnPropertyChanged(nameof(HasServices));
             });
         }
 

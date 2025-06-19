@@ -33,6 +33,8 @@ namespace VetClinic.ViewModels
 
         private List<Appointment> allAppointments = new();
 
+        public bool HasAppointments => FilteredAppointments.Any();
+
         public ClosedAppointmentsViewModel(User vet)
         {
             loggedInVet = vet;
@@ -70,6 +72,7 @@ namespace VetClinic.ViewModels
 
             FilteredAppointments.Clear();
             filtered.ForEach(FilteredAppointments.Add);
+            OnPropertyChanged(nameof(HasAppointments));
         }
 
         private void ViewAppointment(object parameter)

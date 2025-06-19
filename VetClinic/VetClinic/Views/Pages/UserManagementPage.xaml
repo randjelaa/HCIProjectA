@@ -5,8 +5,14 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:local="clr-namespace:VetClinic.Views.Pages"
       xmlns:models="clr-namespace:VetClinic.Models"
+      xmlns:core="clr-namespace:VetClinic"
       mc:Ignorable="d"
       Title="{Binding Source={StaticResource Strings}, Path=[ManageUsers]}">
+
+    <Page.Resources>
+        <core:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+        <core:BoolToVisibilityConverter x:Key="InverseBoolToVisibilityConverter" Inverse="True"/>
+    </Page.Resources>
 
     <Grid Margin="20">
         <Grid.RowDefinitions>
@@ -35,34 +41,43 @@
         </StackPanel>
 
         <!-- DataGrid -->
+        <Grid Grid.Row="2">
+            <!-- DataGrid -->
             <DataGrid ItemsSource="{Binding FilteredUsers}"
-                  AutoGenerateColumns="False"
-                  CanUserAddRows="False"
-                  Margin="0,0,0,10"
-                  IsReadOnly="False"
-                  HeadersVisibility="Column"
-                  AlternatingRowBackground="#FFEFEFEF"
-                  ScrollViewer.VerticalScrollBarVisibility="Auto"
-                  Grid.Row="2">
+              AutoGenerateColumns="False"
+              CanUserAddRows="False"
+              Margin="0,0,0,10"
+              IsReadOnly="False"
+              HeadersVisibility="Column"
+              AlternatingRowBackground="#FFEFEFEF"
+              ScrollViewer.VerticalScrollBarVisibility="Auto"
+              Visibility="{Binding HasUsers, Converter={StaticResource BoolToVisibilityConverter}}">
 
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Binding="{Binding Id}" IsReadOnly="True"/>
                     <DataGridTextColumn Header="{Binding Source={StaticResource Strings}, Path=[Username]}"
-                                    Binding="{Binding Name}" />
+                                Binding="{Binding Name}" />
                     <DataGridTextColumn Header="Email" Binding="{Binding Email}" />
                     <DataGridTextColumn Header="{Binding Source={StaticResource Strings}, Path=[Role]}"
-                                    Binding="{Binding Role.Name}" IsReadOnly="True" />
+                                Binding="{Binding Role.Name}" IsReadOnly="True" />
                     <DataGridTemplateColumn Header="{Binding Source={StaticResource Strings}, Path=[Actions]}">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <Button Content="{Binding Source={StaticResource Strings}, Path=[Delete]}"
-                                    Command="{Binding DataContext.DeleteUserCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
-                                    CommandParameter="{Binding}" />
+                                Command="{Binding DataContext.DeleteUserCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                CommandParameter="{Binding}" />
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
+
+            <!-- Empty message -->
+            <TextBlock Text="{Binding Source={StaticResource Strings}, Path=[NoData]}"
+               Visibility="{Binding HasUsers, Converter={StaticResource InverseBoolToVisibilityConverter}}"
+               HorizontalAlignment="Center" VerticalAlignment="Center"
+               FontSize="16" FontWeight="Bold" Foreground="Gray"/>
+        </Grid>
 
         <!-- Buttons -->
         <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">

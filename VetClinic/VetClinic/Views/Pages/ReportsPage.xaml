@@ -3,9 +3,15 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:core="clr-namespace:VetClinic"
       xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
       mc:Ignorable="d"
       Title="{Binding Source={StaticResource Strings}, Path=[Reports]}">
+
+    <Page.Resources>
+        <core:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+        <core:BoolToVisibilityConverter x:Key="InverseBoolToVisibilityConverter" Inverse="True"/>
+    </Page.Resources>
 
     <ScrollViewer VerticalScrollBarVisibility="Auto">
         <Grid Margin="20">
@@ -27,41 +33,55 @@
 
                 <!-- Payments Table -->
                 <GroupBox Header="{Binding Source={StaticResource Strings}, Path=[Payments]}" Margin="5">
-                    <DataGrid ItemsSource="{Binding Payments}"
-                              AutoGenerateColumns="False"
-                              IsReadOnly="True"
-                              CanUserAddRows="False"
-                              Height="300">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="{Binding Source={StaticResource Strings}, Path=[Date]}" Binding="{Binding Date}" />
-                            <DataGridTextColumn Header="{Binding Source={StaticResource Strings}, Path=[Amount]}" Binding="{Binding Amount}" />
-                            <DataGridTextColumn Header="{Binding Source={StaticResource Strings}, Path=[User]}" Binding="{Binding User.Name}" />
-                        </DataGrid.Columns>
-                    </DataGrid>
+                    <Grid>
+                        <DataGrid ItemsSource="{Binding Payments}"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  CanUserAddRows="False"
+                  Height="300"
+                  Visibility="{Binding HasPayments, Converter={StaticResource BoolToVisibilityConverter}}">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="{Binding Source={StaticResource Strings}, Path=[Date]}" Binding="{Binding Date}" />
+                                <DataGridTextColumn Header="{Binding Source={StaticResource Strings}, Path=[Amount]}" Binding="{Binding Amount}" />
+                                <DataGridTextColumn Header="{Binding Source={StaticResource Strings}, Path=[User]}" Binding="{Binding User.Name}" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <TextBlock Text="{Binding Source={StaticResource Strings}, Path=[NoData]}"
+                   Visibility="{Binding HasPayments, Converter={StaticResource InverseBoolToVisibilityConverter}}"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                   FontSize="16" Foreground="Gray" FontWeight="Bold"/>
+                    </Grid>
                 </GroupBox>
 
                 <!-- Unpaid Services Table -->
                 <GroupBox Header="{Binding Source={StaticResource Strings}, Path=[UnpaidServices]}" Margin="5" Grid.Column="1">
-                    <DataGrid ItemsSource="{Binding UnpaidServices}"
-                              AutoGenerateColumns="False"
-                              IsReadOnly="True"
-                              CanUserAddRows="False"
-                              Height="300">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="{Binding Source={StaticResource Strings}, Path=[Status]}" Binding="{Binding Status}" />
-                            <DataGridTextColumn Header="{Binding Source={StaticResource Strings}, Path=[Amount]}" Binding="{Binding Amount}" />
-                            <DataGridTextColumn Header="{Binding Source={StaticResource Strings}, Path=[User]}" Binding="{Binding User.Name}" />
-                            <DataGridTemplateColumn Header="{Binding Source={StaticResource Strings}, Path=[Actions]}">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <Button Content="{Binding Source={StaticResource Strings}, Path=[UserDetails]}"
-                                                Command="{Binding DataContext.ShowUserCommand, RelativeSource={RelativeSource AncestorType=Page}}"
-                                                CommandParameter="{Binding}" />
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                        </DataGrid.Columns>
-                    </DataGrid>
+                    <Grid>
+                        <DataGrid ItemsSource="{Binding UnpaidServices}"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  CanUserAddRows="False"
+                  Height="300"
+                  Visibility="{Binding HasUnpaidServices, Converter={StaticResource BoolToVisibilityConverter}}">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="{Binding Source={StaticResource Strings}, Path=[Status]}" Binding="{Binding Status}" />
+                                <DataGridTextColumn Header="{Binding Source={StaticResource Strings}, Path=[Amount]}" Binding="{Binding Amount}" />
+                                <DataGridTextColumn Header="{Binding Source={StaticResource Strings}, Path=[User]}" Binding="{Binding User.Name}" />
+                                <DataGridTemplateColumn Header="{Binding Source={StaticResource Strings}, Path=[Actions]}">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button Content="{Binding Source={StaticResource Strings}, Path=[UserDetails]}"
+                                    Command="{Binding DataContext.ShowUserCommand, RelativeSource={RelativeSource AncestorType=Page}}"
+                                    CommandParameter="{Binding}" />
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <TextBlock Text="{Binding Source={StaticResource Strings}, Path=[NoData]}"
+                   Visibility="{Binding HasUnpaidServices, Converter={StaticResource InverseBoolToVisibilityConverter}}"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                   FontSize="16" Foreground="Gray" FontWeight="Bold"/>
+                    </Grid>
                 </GroupBox>
             </Grid>
 

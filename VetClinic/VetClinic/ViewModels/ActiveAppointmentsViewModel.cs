@@ -33,6 +33,9 @@ namespace VetClinic.ViewModels
         public ICommand DeleteAppointmentCommand { get; }
         public ICommand ClearFilterCommand { get; }
 
+        public bool HasUpcomingAppointments => UpcomingAppointments.Any();
+        public bool HasMissedAppointments => MissedAppointments.Any();
+
         public ActiveAppointmentsViewModel(User vet)
         {
             loggedInVet = vet;
@@ -87,6 +90,9 @@ namespace VetClinic.ViewModels
 
             upcoming.ForEach(UpcomingAppointments.Add);
             missed.ForEach(MissedAppointments.Add);
+
+            OnPropertyChanged(nameof(HasUpcomingAppointments));
+            OnPropertyChanged(nameof(HasMissedAppointments));
         }
 
         private void ViewAppointment(object parameter)

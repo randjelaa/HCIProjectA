@@ -330,4 +330,7 @@
   <data name="NewPassword" xml:space="preserve">
     <value>New password</value>
   </data>
+  <data name="NoData" xml:space="preserve">
+    <value>Looks like there’s nothing here right now</value>
+  </data>
 </root>

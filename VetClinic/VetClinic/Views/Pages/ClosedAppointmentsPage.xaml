@@ -43,6 +43,7 @@
               AutoGenerateColumns="False"
               SelectedItem="{Binding SelectedAppointment}"
               ScrollViewer.VerticalScrollBarVisibility="Auto"
+              CanUserAddRows="False"
               Visibility="{Binding HasAppointments, Converter={StaticResource BoolToVisibilityConverter}}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="{Binding Source={StaticResource Strings}, Path=[Date]}"

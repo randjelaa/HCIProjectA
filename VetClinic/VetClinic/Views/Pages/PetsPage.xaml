@@ -40,6 +40,7 @@
               AutoGenerateColumns="False"
               SelectedItem="{Binding SelectedPet}"
               ScrollViewer.VerticalScrollBarVisibility="Auto"
+              CanUserAddRows="False"
               Visibility="{Binding HasPets, Converter={StaticResource BoolToVisibilityConverter}}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="{Binding Source={StaticResource Strings}, Path=[Name]}" Binding="{Binding Name}" Width="*"/>

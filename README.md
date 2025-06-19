@@ -1,7 +1,3 @@
-Great! Below is an updated version of your `README.md` with placeholders for screenshots. You can now insert your screenshots at the appropriate locations.
-
----
-
 # 🐾 VetClinic – Veterinary Clinic Information System
 
 This is a desktop WPF application designed for managing operations in a veterinary clinic. It includes role-based functionality for administrators and veterinarians, with shared features such as language settings and personal profile management.
@@ -10,7 +6,7 @@ This is a desktop WPF application designed for managing operations in a veterina
 
 ## 📥 Getting Started
 
-![Main Screenshot](./Screenshots/main.png)
+![Main Screenshot](./Screenshots/main.PNG)
 
 This is the sratup window, you can change the language of this window in the upper right corner. The application requires login credentials. Users are assigned one of the following roles:
 

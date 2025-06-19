@@ -122,13 +122,18 @@ namespace VetClinic.ViewModels
             var oldWindow = Application.Current.MainWindow;
             Window newWindow;
 
-            if (LoggedInUser.RoleId == 2)
+            if (LoggedInUser.RoleId == 1)
             {
                 newWindow = new AdminView(LoggedInUser);
                 Application.Current.MainWindow = newWindow;
                 newWindow.Show();
                 oldWindow.Close();
                 ((AdminView)newWindow).MainFrame.Navigate(new SettingsPage(LoggedInUser));
+
+                if (newWindow.DataContext is AdminViewModel vm)
+                {
+                    vm.CurrentPage = "Settings";
+                }
             }
             else
             {
@@ -137,6 +142,11 @@ namespace VetClinic.ViewModels
                 newWindow.Show();
                 oldWindow.Close();
                 ((VetView)newWindow).MainFrame.Navigate(new SettingsPage(LoggedInUser));
+
+                if (newWindow.DataContext is VetViewModel vm)
+                {
+                    vm.CurrentPage = "Settings";
+                }
             }
         }
 

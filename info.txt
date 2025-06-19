@@ -1,0 +1,17 @@
+Informacioni sistem za rad veterinarske klinike
+
+Funkcionalnosti po vrsti korisnika
+
+1. Administrator
+• Upravljanje korisnicima i pravima pristupa: Dodavanje i uklanjanje zaposlenih korisnika (veterinari)
+• Upravljanje uslugama: Kreiranje, pregled i ažuriranje informacija o dostupnim uslugama (npr. pregledi, vakcinacije, šišanje).
+• Finansijski izvještaji: Pregled finansijskih podataka kao što su prihod od usluga i pregled uplata.
+
+2. Veterinar
+• Upravljanje pregledima: Uvid u istoriju pregleda, prikaz zakazanih pregleda – filtriranje po datumu.
+• Dijagnoza i tretman: Bilježenje dijagnoza, tretmana, propisanih ljekova i ostalih bilješki u medicinski karton pacijenta.
+
+Zajednička funkcionalnost:
+• Podešavanja sistema: Podesi jezik aplikacije i izmjena ličnih podataka.
+
+Link do GitHub repozitorijuma: https://github.com/randjelaa/HCIProjectA

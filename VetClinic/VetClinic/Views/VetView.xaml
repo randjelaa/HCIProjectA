@@ -3,7 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:VetClinic.Views"
         Title="{Binding Source={StaticResource Strings}, Path=[VetView]}" 
-        Height="500" Width="900">
+        WindowState="Maximized"
+        WindowStyle="SingleBorderWindow" 
+        ResizeMode="CanResize">
     <DockPanel>
         <!-- Navigation Menu -->
         <StackPanel DockPanel.Dock="Left" Width="200" Background="#EEE">

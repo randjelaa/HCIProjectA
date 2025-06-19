@@ -6,40 +6,49 @@
       mc:Ignorable="d"
       Title="{Binding Source={StaticResource Strings}, Path=[Pets]}">
 
-    <ScrollViewer>
-        <StackPanel Margin="20">
-            <TextBlock Text="{Binding Source={StaticResource Strings}, Path=[Pets]}" FontSize="24" FontWeight="Bold" Margin="0,0,0,10"/>
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <!-- This allows DataGrid to expand and scroll -->
+        </Grid.RowDefinitions>
 
-            <!-- Search Box -->
-            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                <TextBox Width="200" Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" 
-                         Margin="0,0,10,0"/>
-                <Button Content="{Binding Source={StaticResource Strings}, Path=[Search]}" Command="{Binding SearchCommand}" />
-                <Button Content="{Binding Source={StaticResource Strings}, Path=[Clear]}"
-                        Command="{Binding ClearSearchCommand}"
-                        Margin="5,0,0,0"/>
-            </StackPanel>
+        <TextBlock Text="{Binding Source={StaticResource Strings}, Path=[Pets]}" 
+                   FontSize="24" FontWeight="Bold" Margin="0,0,0,10"/>
 
-            <!-- Pet Table -->
-            <DataGrid ItemsSource="{Binding FilteredPets}" AutoGenerateColumns="False"
-                      SelectedItem="{Binding SelectedPet}">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="{Binding Source={StaticResource Strings}, Path=[Name]}" Binding="{Binding Name}" Width="*"/>
-                    <DataGridTextColumn Header="{Binding Source={StaticResource Strings}, Path=[Species]}" Binding="{Binding Species}" Width="*"/>
-                    <DataGridTextColumn Header="{Binding Source={StaticResource Strings}, Path=[Breed]}" Binding="{Binding Breed}" Width="*"/>
-                    <DataGridTextColumn Header="{Binding Source={StaticResource Strings}, Path=[Owner]}" Binding="{Binding Owner.Name}" Width="*"/>
-                    <DataGridTextColumn Header="Email" Binding="{Binding Owner.Email}" Width="*"/>
-                    <DataGridTemplateColumn Header="{Binding Source={StaticResource Strings}, Path=[Actions]}" Width="*">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <Button Content="{Binding Source={StaticResource Strings}, Path=[MedicalRecords]}"
-                                        Command="{Binding DataContext.ViewRecordsCommand, RelativeSource={RelativeSource AncestorType=Page}}"
-                                        CommandParameter="{Binding}" />
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                </DataGrid.Columns>
-            </DataGrid>
+        <!-- Search Box -->
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="0,0,0,10">
+            <TextBox Width="200" Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" 
+                     Margin="0,0,10,0"/>
+            <Button Content="{Binding Source={StaticResource Strings}, Path=[Search]}" Command="{Binding SearchCommand}" />
+            <Button Content="{Binding Source={StaticResource Strings}, Path=[Clear]}"
+                    Command="{Binding ClearSearchCommand}"
+                    Margin="5,0,0,0"/>
         </StackPanel>
-    </ScrollViewer>
+
+        <!-- Pet Table with scrolling -->
+        <DataGrid Grid.Row="2"
+                  ItemsSource="{Binding FilteredPets}" 
+                  AutoGenerateColumns="False"
+                  SelectedItem="{Binding SelectedPet}"
+                  ScrollViewer.VerticalScrollBarVisibility="Auto">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="{Binding Source={StaticResource Strings}, Path=[Name]}" Binding="{Binding Name}" Width="*"/>
+                <DataGridTextColumn Header="{Binding Source={StaticResource Strings}, Path=[Species]}" Binding="{Binding Species}" Width="*"/>
+                <DataGridTextColumn Header="{Binding Source={StaticResource Strings}, Path=[Breed]}" Binding="{Binding Breed}" Width="*"/>
+                <DataGridTextColumn Header="{Binding Source={StaticResource Strings}, Path=[Owner]}" Binding="{Binding Owner.Name}" Width="*"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding Owner.Email}" Width="*"/>
+                <DataGridTemplateColumn Header="{Binding Source={StaticResource Strings}, Path=[Actions]}" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="{Binding Source={StaticResource Strings}, Path=[MedicalRecords]}"
+                                    Command="{Binding DataContext.ViewRecordsCommand, RelativeSource={RelativeSource AncestorType=Page}}"
+                                    CommandParameter="{Binding}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
 </Page>

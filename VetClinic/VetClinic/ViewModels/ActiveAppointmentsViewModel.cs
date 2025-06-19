@@ -108,17 +108,26 @@ namespace VetClinic.ViewModels
 
         private void DeleteAppointment(object parameter)
         {
-            /*if (parameter is Appointment appointment)
+            if (parameter is not Appointment appointment)
+                return;
+
+            var confirmDialog = new ConfirmDeleteWindow
             {
-                using var db = new VetClinicContext();
-                var target = db.Appointments.FirstOrDefault(a => a.Id == appointment.Id);
-                if (target != null)
-                {
-                    target.Deleted = DateTime.Now;
-                    db.SaveChanges();
-                    LoadAppointments();
-                }
-            }*/
+                Owner = Application.Current.MainWindow
+            };
+
+            bool? result = confirmDialog.ShowDialog();
+            if (result != true || !confirmDialog.Confirmed)
+                return;
+
+            using var db = new VetClinicContext();
+            var toDelete = db.Appointments.FirstOrDefault(a => a.Id == appointment.Id);
+            if (toDelete == null) return;
+
+            toDelete.Deleted = DateTime.Now;
+            db.SaveChanges();
+
+            LoadAppointments(); // refresh the list after deletion
         }
     }
 }

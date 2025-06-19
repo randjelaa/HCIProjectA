@@ -6,33 +6,54 @@
       mc:Ignorable="d"
       Title="{Binding Source={StaticResource Strings}, Path=[ClosedAppointments]}">
 
-    <ScrollViewer>
-        <StackPanel Margin="20">
-            <TextBlock Text="{Binding Source={StaticResource Strings}, Path=[ClosedAppointments]}" FontSize="24" FontWeight="Bold" Margin="0,0,0,10"/>
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Header -->
+            <RowDefinition Height="Auto"/>
+            <!-- Filter controls -->
+            <RowDefinition Height="*"/>
+            <!-- DataGrid -->
+        </Grid.RowDefinitions>
 
-            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                <TextBlock Text="{Binding Source={StaticResource Strings}, Path=[Filter]}" VerticalAlignment="Center" Margin="0,0,10,0"/>
-                <DatePicker SelectedDate="{Binding SelectedDate}" Width="150"/>
-                <Button Content="{Binding Source={StaticResource Strings}, Path=[ClearFilter]}" Margin="10,0,0,0" Click="ClearFilter_Click"/>
-            </StackPanel>
+        <!-- Title -->
+        <TextBlock Grid.Row="0"
+                   Text="{Binding Source={StaticResource Strings}, Path=[ClosedAppointments]}"
+                   FontSize="24" FontWeight="Bold" Margin="0,0,0,10"/>
 
-            <DataGrid ItemsSource="{Binding FilteredAppointments}" AutoGenerateColumns="False"
-                      SelectedItem="{Binding SelectedAppointment}">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="{Binding Source={StaticResource Strings}, Path=[Date]}" Binding="{Binding Date}" Width="*"/>
-                    <DataGridTextColumn Header="{Binding Source={StaticResource Strings}, Path=[Pet]}" Binding="{Binding Pet.Name}" Width="*"/>
-                    <DataGridTextColumn Header="{Binding Source={StaticResource Strings}, Path=[Service]}" Binding="{Binding Service.Name}" Width="*"/>
-                    <DataGridTemplateColumn Header="{Binding Source={StaticResource Strings}, Path=[Actions]}" Width="*">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <Button Content="{Binding Source={StaticResource Strings}, Path=[View]}"
-                                        Command="{Binding DataContext.ViewAppointmentCommand, RelativeSource={RelativeSource AncestorType=Page}}"
-                                        CommandParameter="{Binding}" />
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                </DataGrid.Columns>
-            </DataGrid>
+        <!-- Filter Controls -->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,0,0,10">
+            <TextBlock Text="{Binding Source={StaticResource Strings}, Path=[Filter]}"
+                       VerticalAlignment="Center" Margin="0,0,10,0"/>
+            <DatePicker SelectedDate="{Binding SelectedDate}" Width="150"/>
+            <Button Content="{Binding Source={StaticResource Strings}, Path=[ClearFilter]}"
+                    Margin="10,0,0,0" Click="ClearFilter_Click"/>
         </StackPanel>
-    </ScrollViewer>
+
+        <!-- Scrollable DataGrid -->
+        <DataGrid Grid.Row="2"
+                  ItemsSource="{Binding FilteredAppointments}"
+                  AutoGenerateColumns="False"
+                  SelectedItem="{Binding SelectedAppointment}"
+                  ScrollViewer.VerticalScrollBarVisibility="Auto">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="{Binding Source={StaticResource Strings}, Path=[Date]}"
+                                    Binding="{Binding Date}" Width="*"/>
+                <DataGridTextColumn Header="{Binding Source={StaticResource Strings}, Path=[Pet]}"
+                                    Binding="{Binding Pet.Name}" Width="*"/>
+                <DataGridTextColumn Header="{Binding Source={StaticResource Strings}, Path=[Service]}"
+                                    Binding="{Binding Service.Name}" Width="*"/>
+                <DataGridTemplateColumn Header="{Binding Source={StaticResource Strings}, Path=[Actions]}" Width="2*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="{Binding Source={StaticResource Strings}, Path=[View]}"
+                                    Command="{Binding DataContext.ViewAppointmentCommand, RelativeSource={RelativeSource AncestorType=Page}}"
+                                    CommandParameter="{Binding}" 
+                                    Width="100" HorizontalAlignment="Left"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
 </Page>

@@ -15,37 +15,63 @@ This is the sratup window, you can change the language of this window in the upp
 
 Upon login, users are redirected to their appropriate dashboard based on their role.
 
+![Main Login Screenshot](./Screenshots/main_login.PNG)
+
 ---
 
 ## 👤 Administrator Functionalities
 
 ### 🔐 User Management
 
+![User Management Screenshot](./Screenshots/manage_users.PNG)
+
 Manage clinic staff such as veterinarians.
 You can:
 
 * Add new users
-* Edit user roles
+
+![Main Screenshot](./Screenshots/manage_users_add.PNG)
+  
+* Search users
+
+![Main Screenshot](./Screenshots/manage_users_search.PNG)
+  
 * Soft-delete users (mark as inactive)
 
-![User Management Screenshot](path_to_screenshot_image_here)
+![User Management Screenshot](./Screenshots/manage_users_delete.PNG)
 
 ---
 
 ### 💼 Service Management
 
+![Main Screenshot](./Screenshots/manage_services.PNG)
+
 Maintain the list of services offered at the clinic.
 You can:
 
-* Create, update, or delete services
-* Set price and duration
-* Filter services using the search bar
+* Add services
 
-![Service Management Screenshot](path_to_screenshot_image_here)
+![Main Screenshot](./Screenshots/manage_services_add.PNG)
+
+* Edit services
+
+![Main Screenshot](./Screenshots/manage_services_edit.PNG)
+
+* Soft delete services (mark as inactive)
+
+![Main Screenshot](./Screenshots/manage_services_delete.PNG)
+
+* Search services using the search bar
+
+![Service Management Screenshot](./Screenshots/manage_services_search.PNG)
 
 ---
 
 ### 📊 Reports and Financial Overview
+
+![Main Screenshot](./Screenshots/reports_1.PNG)
+
+![Main Screenshot](./Screenshots/reports_2.PNG)
 
 Get insights into clinic performance.
 Features include:
@@ -55,7 +81,9 @@ Features include:
 * Line chart of income over time
 * Pie chart of most popular services
 
-![Reports Screenshot](path_to_screenshot_image_here)
+You can see further user details by pressing the button:
+
+![Main Screenshot](./Screenshots/reports_user_details.PNG)
 
 ---
 
@@ -63,36 +91,56 @@ Features include:
 
 ### 📅 Appointment Management
 
-View and manage appointments:
-
+View and manage active appointments - appointments without a record:
 * Upcoming appointments
 * Missed appointments (no medical record added)
-* Cancel appointments if necessary
 
-Appointments are filtered by date.
+![Main Screenshot](./Screenshots/active_appointments.PNG)
 
-![Appointments Screenshot](path_to_screenshot_image_here)
+Veterianrian can:
+* View appointment where he can also add a record (Diagnosis, Treatment, Medications, Notes)
+
+![Main Screenshot](./Screenshots/active_appointment_view.PNG)
+
+* Cancel appointments if necessary - soft delete them (mark as inactive)
+
+![Main Screenshot](./Screenshots/active_appointment_delete.PNG)
+
+Appointments are filtered by date in ascending order.
+
+
+View all closed appointments - appointments with a record.
+
+![Main Screenshot](./Screenshots/closed_appointments.PNG)
+
+Veterianrian can:
+* Filer closed appointments by date:
+
+![Main Screenshot](./Screenshots/closed_appointments_filter.PNG)
+
+* View details of the appointment:
+
+![Main Screenshot](./Screenshots/closed_appointments_view.PNG)
 
 ---
 
-### 📋 Medical Records
+### Pets
 
-Add detailed records for appointments:
+![Main Screenshot](./Screenshots/pets.PNG)
 
-* Diagnosis
-* Treatment
-* Medications
-* Notes
+Veterinarian can see all the pets and their owners, and also by clicking on a button he can see pet's medical records and filter them by dates from and to:
 
-You can also view medical history of pets, filtered by date range.
+![Main Screenshot](./Screenshots/pets_medical_records.PNG)
 
-![Medical Records Screenshot](path_to_screenshot_image_here)
+He can also search the pets by their name or the owner's name:
 
----
+![Main Screenshot](./Screenshots/pets_search.PNG)
 
 ## ⚙️ Shared Settings (All Users)
 
 ### 🌍 Language & Profile Settings
+
+![Settings Screenshot](./Screenshots/settings.PNG)
 
 Each user can:
 
@@ -101,15 +149,19 @@ Each user can:
 
 Changes take effect after clicking **Save Changes**.
 
-![Settings Screenshot](path_to_screenshot_image_here)
-
 ---
 
 ## 🔐 Logout Confirmation
 
 When logging out, a confirmation dialog appears to prevent accidental logout.
 
-![Logout Confirmation Screenshot](path_to_screenshot_image_here)
+![Logout Confirmation Screenshot](./Screenshots/logout.PNG)
+
+## Success Confirmation
+
+Each action of the user shows a message of succession, for example editing the profile:
+
+![Settings Screenshot](./Screenshots/settings_message.PNG)
 
 ---
 
@@ -118,7 +170,7 @@ When logging out, a confirmation dialog appears to prevent accidental logout.
 * **WPF (.NET)**
 * **MVVM Architecture**
 * **Entity Framework Core**
-* **SQLite (or your DB)**
+* **MySQL**
 * **LiveCharts for graphs**
 * **Material Design in XAML Toolkit**
 
@@ -126,13 +178,6 @@ When logging out, a confirmation dialog appears to prevent accidental logout.
 
 ## 📎 Notes
 
-* All deletions are *soft deletes* to preserve data integrity.
+* All deletions are *soft deletes* to preserve data integrity. That means that the data still exists in the database, it is just not shown in the application.
 * Application supports future expansion (e.g., reception roles, pet grooming modules).
 
----
-
-Now, you just need to replace `path_to_screenshot_image_here` with the actual paths to your screenshot images. You can upload these images to the project directory or host them online.
-
-Once you're done adding the screenshots, you can export the document to PDF if needed.
-
-Let me know if you need help with any part of this process!
